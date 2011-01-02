@@ -1,0 +1,51 @@
+$def with (all_pri)
+<html>
+    <head>
+        <script type="text/javascript">
+function validate_required(field, alerttxt)
+{
+    with(field)
+    {
+        if (value == null || value == "")
+        { alert(alerttxt); return false; }
+        else { return true; }
+    }
+}
+
+function validate_form(thisform)
+{
+    with(thisform)
+    {
+        if (validate_required(id, "课程号不能为空！") == false)
+        { id.focus(); return false; }
+        if (validate_required(name, "课程名不能为空！") == false)
+        { name.focus(); return false; }
+        if (validate_required(credit, "学分不能为空！") == false)
+        { sex.focus(); return false; }
+    }
+}
+        </script>
+    </head>
+    <body>
+        <a href="/">首页</a>
+        <form id="course_insert" action="/insert" onsubmit="return validate_form(this)" method="post">
+            <table>
+                <tr>
+                    <td style="display: none;"><input type="text" name="table" value="course"></td>
+                    <td>课程号:</td>
+                    <td><input type="text" name="id"></td>
+                    <td>课程名称:</td>
+                    <td><input type="text" name="name"></td>
+                    <td>学分:</td>
+                    <td>
+                        <select name="credit">
+                            $for i in range(1,40):
+                                <option value=$i>$i</option>
+                        </select>
+                    </td>
+                    <td><input type="submit" name="submit" value="插入"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

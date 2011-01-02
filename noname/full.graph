@@ -1,0 +1,11 @@
+digraph fullgraph {
+node [ fontname=Helvetica, fontsize=12 ];
+"b" [label="b\ncodeviz.c:10:"];
+"d" [label="d\ncodeviz.c:16:"];
+"f" [label="f\ncodeviz.c:21:"];
+"main" [label="main\ncodeviz.c:4:"];
+"main" -> "b" [label="codeviz.c:6"];
+"b" -> "d" [label="codeviz.c:12"];
+"b" -> "f" [label="codeviz.c:13"];
+"f" -> "d" [label="codeviz.c:23"];
+}

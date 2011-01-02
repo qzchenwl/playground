@@ -1,0 +1,203 @@
+$def with (table_name, all_pri, rows)
+<html>
+    <head>
+        <script type="text/javascript">
+            function edit() {
+                alert("请先删除再插入");
+            }
+        </script>
+    </head>
+    <body>
+        <a href="/">首页</a><br />
+        $if table_name == "student":
+            <div style="display: none;"><b> reserve for student </b></div>
+            <form id="student_search" action="/search" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="student"></td>
+                        <td>学号:</td>
+                        <td><input type="text" name="id"></td>
+                        <td>姓名:</td>
+                        <td><input type="text" name="name"></td>
+                        <td>性别:</td>
+                        <td>
+                            <select name="sex">
+                                <option value=""></option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </td>
+                        <td>年龄:</td>
+                        <td>
+                            <select name="age">
+                                <option value=""></option>
+                                $for i in range(1,50):
+                                    <option value=$i>$i</option>
+                            </select>
+                        </td>
+                        <td>专业:</td>
+                        <td>
+                            <select name="dept">
+                                <option value=""></option>
+                                $for dept in all_pri["dept"]:
+                                    <option value=$dept[0]>$dept[1]</option>
+                            </select>
+                        </td>
+                        <td><input type="submit" name="submit" value="搜索!"></td>
+                    </tr>
+                </table>
+            </form>
+            <hr />
+            <form id="goto_student_insert" action="/goto_insert" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="student"></td>
+                        <td><input type="submit" name="submit" value="插入"></td>
+                    </tr>
+                </table>
+            </form>
+            <form id="goto_student_insert" action="/goto_insert" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="student"></td>
+                        <td><input type="submit" name="submit" value="删除"></td>
+                    </tr>
+                </table>
+            </form>
+        $elif table_name == "teacher":
+            <div style="display: none;"><b> reserve for teacher </b></div>
+            <form id="teacher_search" action="/search" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="teacher"></td>
+                        <td>工号:</td>
+                        <td><input type="text" name="id"></td>
+                        <td>姓名:</td>
+                        <td><input type="text" name="name"></td>
+                        <td>性别:</td>
+                        <td>
+                            <select name="sex">
+                                <option value=""></option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </td>
+                        <td>专业:</td>
+                        <td>
+                            <select name="dept">
+                                <option value=""></option>
+                                $for dept in all_pri["dept"]:
+                                    <option value=$dept[0]>$dept[1]</option>
+                            </select>
+                        </td>
+                        <td><input type="submit" name="submit" value="搜索!"></td>
+                    </tr>
+                </table>
+            </form>
+            <hr />
+            <form id="goto_teacher_insert" action="/goto_insert" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="teacher"></td>
+                        <td><input type="submit" name="submit" value="插入"></td>
+                    </tr>
+                </table>
+            </form>
+            <form id="goto_teacher_insert" action="/goto_insert" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="teacher"></td>
+                        <td><input type="submit" name="submit" value="删除"></td>
+                    </tr>
+                </table>
+            </form>
+        $elif table_name == "course":
+            <div style="display: none;"><b> reserve for course </b></div>
+            <form id="course_search" action="/search" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="course"></td>
+                        <td>课程号:</td>
+                        <td><input type="text" name="id"></td>
+                        <td>课程名称:</td>
+                        <td><input type="text" name="name"></td>
+                        <td>学分:</td>
+                        <td>
+                            <select name="credit">
+                                <option value=""></option>
+                                $for i in range(1,40):
+                                    <option value=$i>$i</option>
+                            </select>
+                        </td>
+                        <td><input type="submit" name="submit" value="搜索!"></td>
+                    </tr>
+                </table>
+            </form>
+            <hr />
+            <form id="goto_course_insert" action="/goto_insert" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="course"></td>
+                        <td><input type="submit" name="submit" value="插入"></td>
+                    </tr>
+                </table>
+            </form>
+
+        $elif table_name == "dept":
+            <div style="display: none;"><b> reserve for dept </b></div>
+            <form id="dept_search" action="/search" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="dept"></td>
+                        <td>专业号:</td>
+                        <td><input type="text" name="id"></td>
+                        <td>专业名称:</td>
+                        <td><input type="text" name="name"></td>
+                        <td><input type="submit" name="submit" value="搜索!"></td>
+                    </tr>
+                </table>
+            </form>
+            <hr />
+            <form id="goto_dept_insert" action="/goto_insert" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="dept"></td>
+                        <td><input type="submit" name="submit" value="插入"></td>
+                    </tr>
+                </table>
+            </form>
+
+        $elif table_name == "sc":
+            <div style="display: none;"><b> reserve for sc </b></div>
+            <form id="sc_search" action="/search" method="post">
+                <table>
+                    <tr>
+                        <td style="display: none;"><input type="text" name="table" value="sc"></td>
+                        <td>学号:</td>
+                        <td><input type="text" name="sid"></td>
+                        <td>课程号:</td>
+                        <td><input type="text" name="cid"></td>
+                        <td>教师工号:</td>
+                        <td><input type="text" name="tid"></td>
+                        <td><input type="submit" name="submit" value="搜索!"></td>
+                    </tr>
+                </table>
+            </form>
+        $else:
+            <div style="display: none;"><b> reserve for error </b></div>
+
+        <table>
+            <tr>
+                <td><input type="button" onclick="edit()" value="更新"></td>
+            </tr>
+        </table>
+
+        <table border="1">
+            $for row in rows:
+            <tr>
+                $for item in row:
+                    <td>$item</td>
+            </tr>
+        </table>
+    </body>
+</html>

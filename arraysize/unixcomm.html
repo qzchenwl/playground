@@ -1,0 +1,4081 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+           "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<meta name="GENERATOR" CONTENT="TtH 2.73">
+                                                                                             
+
+
+<title> Some Useful Linux Commands</title>
+ 
+<h1 align="center">Some Useful Linux Commands </h1>
+
+<h3 align=center>Steve Ambler </h3>
+
+<h3 align=center>February 2002 </h3>
+
+<p>
+ 
+<h1>Contents </h1><a href="#tth_sEc1"
+>1&nbsp; Introduction</a><br>
+<a href="#tth_sEc2"
+>2&nbsp; Shorthand at the Command Prompt</a><br>
+<a href="#tth_sEc3"
+>3&nbsp; Typical Dot Files</a><br>
+<a href="#tth_sEc4"
+>4&nbsp; Useful Files</a><br>
+<a href="#tth_sEc5"
+>5&nbsp; Important Directories</a><br>
+<a href="#tth_sEc6"
+>6&nbsp; Important Bash Shell Variables</a><br>
+<a href="#tth_sEc7"
+>7&nbsp; Important Daemons and Startup Services</a><br>
+<a href="#tth_sEc8"
+>8&nbsp; Window Managers</a><br>
+<a href="#tth_sEc9"
+>9&nbsp; Alphabetical List of Principal Commands</a><br>
+<a href="#tth_sEc10"
+>10&nbsp; Notes on Applications</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tth_sEc10.1"
+>10.1&nbsp; Mail Transfer Agents (MTAs)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tth_sEc10.2"
+>10.2&nbsp; Mail User Agents (MUAs)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tth_sEc10.3"
+>10.3&nbsp; Editors</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tth_sEc10.4"
+>10.4&nbsp; Other</a><br>
+<a href="#tth_sEc11"
+>11&nbsp; Some Nifty Slogans</a><br>
+<a href="#tth_sEc12"
+>12&nbsp; References</a><br>
+ 
+<p>
+       <h2><a name="tth_sEc1">
+1</a>&nbsp;&nbsp;Introduction</h2>
+
+<p>
+This is my own summary of useful Linux abbreviations, directories, files, and
+commands. I use my own annotations to recall useful options and arguments that
+are not necessarily documented in easy-to-find places. I quite often call up
+this file when I can't remember the syntax of a command that I use often (but
+not often enough to remember the syntax!). I also editorialize on the relative
+usefulness of different types of programs.
+
+<p>
+This document is work in progress. Send suggested changes and corrections to
+<tt><a href="mailto:ambler.steven@uqam.ca">ambler.steven@uqam.ca</a></tt>
+
+<p>
+O'Reilly has just published online an alphabetical list of commands from
+<em>Linux in a Nutshell</em>. It is available
+<tt><a href="http://www.onlamp.com/linux/cmd/">here</a></tt>. It contains more
+detailed explanations of many of the commands listed here.
+
+<p>
+       <h2><a name="tth_sEc2">
+2</a>&nbsp;&nbsp;Shorthand at the Command Prompt</h2>
+
+<p>
+Some of these are specific to the bash shell. I have not experimented enough
+with other shells to know which are common to all shells. See also the ``Bash
+Reference Card'', SSC (2000), available online.
+
+<p>
+
+<ul>
+<li> / - root directory
+
+<p>
+
+<li> ./ - current directory
+
+<p>
+
+<li> ./command_name - run a command in the current directory when the
+current directory is not on the path
+
+<p>
+
+<li> ../ - parent directory
+
+<p>
+
+<li> <tt>~</tt> - home directory
+
+<p>
+
+<li> $ - typical prompt when logged in as ordinary user
+
+<p>
+
+<li> # - typical prompt when logged in as root or superuser
+
+<p>
+
+<li> ! - repeat specified command
+
+<p>
+
+<li> !! - repeat previous command
+
+<p>
+
+<li> <tt>^^</tt> - repeat previous command with substitution
+
+<p>
+
+<li> &amp; - run a program in background mode
+  
+<p>
+
+<li> <tt>[Tab][Tab]</tt> - prints a list of all available commands. This is
+  just an example of autocomplete with no restriction on the first letter.
+
+<p>
+
+<li> x[Tab][Tab] - prints a list of all available completions for a command,
+  where the beginning is ``x''
+
+<p>
+
+<li> <tt>[Alt][Ctrl][F1]</tt> - switch to the first virtual text console
+  
+<p>
+
+<li> <tt>[Alt][Ctrl][Fn]</tt> - switch to the n<sup>th</sup> virtual text console.
+  Typically, there are six on a Linux PC system.
+
+<p>
+
+<li> <tt>[Alt][Ctrl][F7]</tt> - switch to the first GUI console, if there is
+  one running. If the graphical console freezes, one can switch to a
+  nongraphical console, kill the process that is giving problems, and switch
+  back to the graphical console using this shortcut.
+
+<p>
+
+<li> <tt>[ArrowUp]</tt> - scroll through the command history (in bash)
+  
+<p>
+
+<li> <tt>[Shift][PageUp]</tt> - scroll terminal output up. This also works at
+  the login prompt, so you can scroll through your boot messages.
+
+<p>
+
+<li> <tt>[Shift][PageDown]</tt> - scroll terminal output down
+  
+<p>
+
+<li> <tt>[Ctrl][Alt][+]</tt> - switch to next X server resolution (if the
+  server is set up for more than one resolution)
+
+<p>
+
+<li> <tt>[Ctrl][Alt][-]</tt> - change to previous X server resolution
+  
+<p>
+
+<li> <tt>[Ctrl][Alt][BkSpc]</tt> - kill the current X server. Used when normal
+  exit is not possible.
+
+<p>
+
+<li> <tt>[Ctrl][Alt][Del]</tt> - shut down the system and reboot
+
+<p>
+
+<li> <tt>[Ctrl]c</tt> - kill the current process
+
+<p>
+
+<li> <tt>[Ctrl]d</tt> - logout from the current terminal
+
+<p>
+
+<li> <tt>[Ctrl]s</tt> - stop transfer to current terminal
+
+<p>
+
+<li> <tt>[Ctrl]q</tt> - resume transfer to current terminal. This should
+be tried if the terminal stops responding.
+
+<p>
+
+<li> <tt>[Ctrl]z</tt> - send current process to the background
+
+<p>
+
+<li> reset - restore a terminal to its default settings
+
+<p>
+
+<li><tt>[Leftmousebutton]</tt> - Hold down left mouse button and drag to
+highlight text. Releasing the button copies the region to the text buffer
+under X and (if gpm is installed) in console mode.
+
+<p>
+
+<li><tt>[Middlemousebutton]</tt> - Copies text from the text buffer and inserts
+it at the cursor location. With a two-button mouse, click on both
+buttons simultaneously. It is necessary for three-button emulation to be
+enabled, either under gpm or in XF86Config.
+
+<p>
+</ul>       <h2><a name="tth_sEc3">
+3</a>&nbsp;&nbsp;Typical Dot Files</h2>
+
+<p>
+There is some redundancy across these programs. For example, the look and
+behavior of emacs can be customized by usinng the .emacs file, but also by
+adding the appropriate modifications to the .Xdefaults file. Default versions
+of these files are often installed in users' home directories when the
+software packages that use them are installed. If a program doesn't find its
+configuration file in the user's home directory, it will often fall back on a
+sytem-wide default configuration file installed in one of the subdirectories
+that the package lives in.
+
+<p>
+
+<ul>
+<li> .bash_logout - file executed by bash shell on logout
+  
+<p>
+
+<li> .bash_profile - initialization of bash shell run only on login. Bash
+  looks first for a .bash_profile file when started as a login shell or with
+  the -login option. If it does not find .bash_profile, it looks for
+  .bash_login. If it doesn't find that, it looks for .profile. System-wide
+  functions and aliases go in /etc/bashrc and default environment variables go
+  in /etc/profile.
+  
+<p>
+
+<li> .bashrc - initialization command run when bash shell starts up as a
+  non-login shell
+  
+<p>
+
+<li> .cshrc - initialization commands that are run automatically (like
+  autoexec.bat) when C shell is initiated
+
+<p>
+
+<li> .emacs - configuration file for emacs editor
+
+<p>
+
+<li> .fvwmrc - configuration file for fvwm window manager
+
+<p>
+
+<li> .fvwm2rc - configuration file for fvwm2 window manager
+
+<p>
+
+<li> .jedrc - configuration file for the jed text editor
+  
+<p>
+
+<li> .lessrc - typically contains key bindings for cursor movement with the
+  less command
+
+<p>
+
+<li> .login - initialization file when user logs in
+
+<p>
+
+<li> .logout - commands run when user logs out
+  
+<p>
+
+<li> .wm_style - gives choice of default window manager if one is not
+  specified in startx
+  
+<p>
+
+<li> .Xdefaults - sets up X resources for individual user. The behavior of
+  many different application programs can be changed by modifying this file.
+  
+<p>
+
+<li> .xinitrc - initialization file when running startx. Can be used to
+  activate applications, run a given window manager, and modify the appearance
+  of the root window.
+
+<p>
+
+<li> .xsession - configuration file for xdm
+
+<p>
+</ul>       <h2><a name="tth_sEc4">
+4</a>&nbsp;&nbsp;Useful Files</h2>
+
+<p>
+
+<ul>  
+<li> /boot/vmlinuz - the typical location and name of the Linux kernel. In
+  the Slackware distribution, the kernel is located at /vmlinuz.
+
+<p>
+
+<li> /dev/fd0 - first floppy disk drive
+  
+<p>
+
+<li> /dev/fd0H1440 - driver for the first floppy drive in high density mode.
+  Generally, this is invoked when formatting a floppy drive for a particular
+  density. Slackware comes with drivers that allow for formatting a 3.5"
+  diskette with up to 1.7MB of space. Red Hat and Mandrake do not contain
+  these device driver files by default.
+
+<p>
+
+<li> /dev/fd1 - second floppy disk drive
+
+<p>
+
+<li> /dev/hda - first IDE hard drive
+
+<p>
+
+<li> /dev/hdc - on many machines, the IDE cdrom drive. Most often, there is
+  a symbolic link called /dev/cdrom which is just a link to the true cdrom
+  driver file.
+
+<p>
+
+<li> /dev/null - used when you want to send output into oblivion
+  
+<p>
+
+<li> /etc/aliases - file containing aliases used by sendmail and other MTAs
+  (mail transport agents). After updating this file, it is necessary to run
+  the newaliases utility for the changes to be passed to sendmail.
+  
+<p>
+
+<li> /etc/bashrc - system-wide default functions and aliases for the bash
+  shell
+
+<p>
+
+<li> /etc/conf.modules - aliases and options for configurable modules
+
+<p>
+
+<li> /etc/crontab - shell script to run different commands periodically
+  (hourly, daily, weekly, monthly, etc.)
+  
+<p>
+
+<li> /etc/DIR_COLORS - used to store colors for different file types when
+  using ls command. The dircolors command uses this file when there is not a
+  .dir_colors file in the user's home directory. Used in conjunction with the
+  eval command (see below).
+
+<p>
+
+<li> /etc/exports - specifies hosts to which file systems can be exported
+  using NFS. Man exports contains information on how to set up this file for
+  remote users.
+  
+<p>
+
+<li> /etc/fstab - contains information on partitions and filesystems used by
+  system to mount different partitions and devices on the directory tree
+
+<p>
+
+<li> /etc/HOSTNAME - stores the name of the host computer
+
+<p>
+
+<li> /etc/hosts - contains a list of host names and absolute IP addresses.
+  
+<p>
+
+<li> /etc/hosts.allow - hosts allowed (by the tcpd daemon) to access
+  Internet services
+  
+<p>
+
+<li> /etc/hosts.deny - hosts forbidden (by the tcpd daemon) to access
+  Internet services
+
+<p>
+
+<li> /etc/group - similar to /etc/passwd but for groups
+  
+<p>
+
+<li> /etc/inetd.conf - configures the inetd daemon to tell it what TCP/IP
+  services to provide (which daemons to load at boot time). A good start to
+  securing a Linux box is to turn off these services unless they are
+  necessary.
+
+<p>
+
+<li> /etc/inittab - runs different programs and processes on startup. This
+  is typically the program which is responsible for, among other things,
+  setting the default runlevel, running the rc.sysinit script contained in
+  /etc/rc.d, setting up virtual login terminals, bringing down the system in
+  an orderly fashion in response to <tt>[Ctrl][Alt][Del]</tt>, running the rc
+  script in /etc/rc.d, and running xdm for a graphical login prompt (only if
+  the default runlevel is set for a graphical login).
+  
+<p>
+
+<li> /etc/issue - pre-login message. This is often overwitten by the
+  /etc/rc.d/rc.S script (in Slackware) or by the /etc/rc.d/rc.local script (in
+  Mandrake and Red Hat, and perhaps other rpm-based distributions). The
+  relevant lines should be commented out (or changed) in these scripts if a
+  custom pre-login message is desired.
+
+<p>
+
+<li> /etc/lilo.conf - configuration file for lilo boot loader
+  
+<p>
+
+<li> /etc/motd - message of the day file, printed immediately after login.
+  This is often overwritten by /etc/rc.d/rc.S (Slackware) or
+  /etc/rc.d/rc.local (Mandrake/Red Hat) on startup. See the remarks in
+  connection with /etc/issue.
+  
+<p>
+
+<li> /etc/mtab - shows currently mounted devices and partitions and their
+  status
+  
+<p>
+
+<li> /etc/passwd - contains passwords and other information concerning users
+  who are registered to use the system. For obvious security reasons, this is
+  readable only by root. It can be modified by root directly, but it is
+  preferable to use a configuration utility such as passwd to make the
+  changes. A corrupt /etc/passwd file can easily render a Linux box unusable.
+
+<p>
+
+<li> /etc/printcap - shows the setup of printers
+  
+<p>
+
+<li> /etc/profile - sets system-wide defaults for bash shell. It is this
+  file in Slackware that sets up the DIR_COLORS environment variable for the
+  color ls command. Also sets up other system-wide environment variables.
+  
+<p>
+
+<li> /etc/resolv.conf - contains a list of domain name servers used by the
+  local machine
+
+<p>
+
+<li> /etc/securetty - contains a list of terminals on which root can
+  login. For security reasons, this should not include dialup terminals.
+  
+<p>
+
+<li> /etc/termcap - ASCII database defining the capabilities and
+  characteristics of different consoles, terminals, and printers
+
+<p>
+
+<li> /etc/X11/XF86Config - X configuration file. The location in Slackware
+  is /etc/XF86Config.
+
+<p>
+
+<li> /proc/cpuinfo - cpu information
+
+<p>
+
+<li> /proc/filesystems - prints filesystems currently in use
+
+<p>
+
+<li> /proc/interrupts - prints interrupts currently in use
+  
+<p>
+
+<li> /proc/ioports - contains a list of the i/o addresses used by various
+  devices connected to the computer
+  
+<p>
+
+<li> /proc/kcore - The command ls -l /proc/kcore will give the amount of RAM
+  on the computer. It's also possible to use the free command to get the same
+  information (and more).
+
+<p>
+
+<li> /proc/version - prints Linux version and other info
+  
+<p>
+
+<li> /var/log/messages - used by syslog daemon to store kernel boot-time
+  messages
+
+<p>
+
+<li> /var/log/lastlog - used by system to store information about last
+boot
+
+<p>
+
+<li> /var/log/wtmp - contains binary data indicating login times and
+duration for each user on system
+
+<p>
+</ul>       <h2><a name="tth_sEc5">
+5</a>&nbsp;&nbsp;Important Directories</h2>
+
+<p>
+Different distributions have different directory structures, despite attempts
+at standardization such as the the Linux Filesystem Hierarchy Standard (FHS)
+organization.
+
+<p>
+
+<ul>  
+<li> /bin - essential UNIX commands such as ls, etc. Should contain all
+  binaries needed to boot the system or run it in single-user mode
+  
+<p>
+
+<li> /boot - files used during booting and possibly the kernel itself are
+  stored here
+
+<p>
+
+<li> /dev - contains device files for various devices on system
+  
+<p>
+
+<li> /etc - files used by subsystems such as networking, NFS, and mail.
+  Includes tables of disks to mount, processes to run on startup, etc.
+  
+<p>
+
+<li> /etc/profile.d - contains scripts that are run by /etc/profile upon
+  login.
+
+<p>
+
+<li> /etc/rc.d - contains a number of shell scripts that are run on bootup
+  at different run levels. There is also typically an rc.inet1 script to set
+  up networking (in Slackwar), an rc.modules script to load modular device
+  drivers, and an rc.local script that can be edited to run commands desired
+  by the administrator, along the lines of autoexec.bat in DOS.
+
+<p>
+
+<li> /etc/rc.d/init.d - contains most of the initialization scripts
+  themselves on an rpm-based system.
+
+<p>
+
+<li> /etc/rc.d/rc*.d - where ``*'' is a number corresponding to the default
+  run level. Contains files for services to be started and stopped at that run
+  level. On rpm-based systems, these files are symbolic links to the
+  initialization scripts themselves, which are in /etc/rc.d/init.d.
+  
+<p>
+
+<li> /etc/skel - directory containing several example or skeleton
+  initialization shells. Often contains subdirectories and files used to
+  populate a new user's home directory.
+
+<p>
+
+<li> /etc/X11 - configuration files for the X Window system
+
+<p>
+
+<li> /home - home directories of individual users
+
+<p>
+
+<li> /lib - standard shared library files
+
+<p>
+
+<li> /lib/modules - modular device driver files, most with .o extensions
+  
+<p>
+
+<li> /mnt - typical mount point for many user-mountable devices such as
+  floppy drives, cd-rom readers, etc. Each device is mounted on a subdirectory
+  of /mnt.
+
+<p>
+
+<li> /proc - virtual file system that provides a number of system statistics
+
+<p>
+
+<li> /root - home directory for root
+
+<p>
+
+<li> /sbin - location of binaries used for system administration,
+  configuration, and monitoring
+
+<p>
+
+<li> /tmp - directory specifically designed for programs and users to store
+  temporary files.
+
+<p>
+
+<li> /usr - directory containing a number of subdirectory with programs,
+  libraries, documentation, etc. 
+  
+<p>
+
+<li> /usr/bin - contains most user commands. Should not contain binaries
+  necessary for booting the system, which go in /bin. The /bin directory is
+  generally located on the same disk partition as /, which is mounted in
+  read-only mode during the boot process. Other filesystems are only mounted
+  at a later stage during startup, so putting binaries essential for boot here
+  is not a good idea.
+
+<p>
+
+<li> /usr/bin/X11 - most often a symbolic link to /usr/X11R6/bin, which
+  contains executable binaries related to the X Window system
+
+<p>
+
+<li> /usr/doc - location of miscellaneous documentation, and the main
+  location of program documentation files under Slackware
+  
+<p>
+
+<li> /usr/include - standard location of include files used in C programs
+  such as stdio.h
+
+<p>
+
+<li> /usr/info - primary location of the GNU info system files
+  
+<p>
+
+<li> /usr/lib - standard library files such as libc.a. Searched by the
+  linker when programs are compiled.
+
+<p>
+
+<li> /usr/lib/X11 - X Window system distribution
+
+<p>
+
+<li> /usr/local/bin - yet another place to look for comon executables
+
+<p>
+
+<li> /usr/man - location of manual page files
+  
+<p>
+
+<li> /usr/sbin - other commands used by superuser for system administration
+
+<p>
+
+<li> /usr/share - contains subdirectories where many installed programs have
+  configuration, setup and auxiliary files
+
+<p>
+
+<li> /usr/share/doc - location of program documentation files under Mandrake
+  and Red Hat
+  
+<p>
+
+<li> /usr/src - location of source programs used to build system. Source
+  code for programs of all types are often unpacked in this directory.
+
+<p>
+
+<li> /usr/src/linux - often a symbolic link to a subdirectory whose name
+  corresponds to the exact version of the Linux kernel that is
+  running. Contains the kernel sources.
+  
+<p>
+
+<li> /var - administrative files such as log files, used by various
+  utilities
+  
+<p>
+
+<li> /var/log/packages - contains files, each of which has detailed
+  information on an installed package in Slackware. The same file can also be
+  found at /var/adm/packages, since the adm subdirectory is a symbolic link to
+  log. Each package file contains a short description plus a list of all
+  installed files.
+  
+<p>
+
+<li> /var/log/scripts - package installation scripts in Slackware are stored
+  here. You can inspect these scripts to see what special features are
+  included in individual packages.
+  
+<p>
+
+<li> /var/spool - temporary storage for files being printed, mail that has
+  not yet been picked up, etc.
+
+<p>
+</ul>       <h2><a name="tth_sEc6">
+6</a>&nbsp;&nbsp;Important Bash Shell Variables</h2>
+
+<p>
+These variables are most often inherited or declared when a shell is
+started. A great reference for bash shell variable, bash builtin commands, and
+bash in general is SSC (2000).
+
+<p>
+
+<ul>
+<li> HOME - home directory, abbreviated as <tt>~</tt>
+
+<p>
+
+<li> MAIL - name of file that mail is stored in (<em>mailbox</em>)
+
+<p>
+
+<li> MAILCHECK - sets the frequency at which bash checks for mail
+  
+<p>
+
+<li> PATH - directory paths to search for executable files. According to
+  <em>A Practical Guide to Linux</em>, p.329, the PATH is set in /etc/profile.
+  On my Linux box, /etc/profile adds /usr/X11R6/bin to the path, which means
+  that the path must be set before by another configuration file. The
+  .bash_profile file in my home directory adds /home/ambler/bin to the path.
+  On my Linux box, the first command to set the path would seem to be in
+  /etc/rc.d/rc.sysinit, which is one of the shell scripts invoked by the init
+  process (inittab). Then, /etc/profile adds /usr/X11R6/bin. Finally,
+  .bash_profile adds /home/ambler/bin.
+  
+<p>
+
+<li> PS1 - prompt string. Things that can be put in the prompt string
+  include <tt>\</tt>h (hostname), <tt>\</tt>u (username), <tt>\</tt>w (absolute
+  pathname of working directory), <tt>\</tt>W (name of working directory w/o
+  path), <tt>\</tt>d (date), <tt>\</tt>t (time). See p.331 of <em>A Practical
+    Guide to Linux</em> for more details. On my Red Hat boxes, the primary prompt
+  string is set in the /etc/bashrc file. The prompt is also set in
+  /etc/profile, but the setting in bashrc seems to take precedence. I also
+  have a .bashrc file, which in turn runs /etc/bashrc, which sets the prompt.
+  This means that the same prompt is used by xterm and rxvt in X sessions. On
+  my Slackware box, the command line prompt is set in /etc/profile. The xterm
+  and rxvt prompts are different, since I don't have a .bash_profile file
+  which is run when an xterm is started. In fact, I don't know where the
+  prompt is set in X sessions. It is not set by
+  /usr/X11R6/lib/X11/app-defaults/XTerm.
+
+<p>
+
+<li> PS2 - secondary prompt string.
+
+<p>
+</ul>       <h2><a name="tth_sEc7">
+7</a>&nbsp;&nbsp;Important Daemons and Startup Services</h2>
+
+<p>
+These are programs or processes which are run at boot time. Some remain in
+memory to execute various tasks when required (daemons). Most are started and
+stopped with scripts in the /etc/rc.d/init.d directory (see above). The exact
+contents of this directory will depend on which packages from a particular
+distribution are installed.  For example, installing the Apache package will
+cause an httpd script to be placed in /etc/rc.d/init.d.
+
+<p>
+There are man pages on most of these. The Red Hat program tksysv (ntsysv is
+the non graphical version) allows root to automatically configure which of
+these are started automatically at boot time. The linuxconf program does the
+same thing, although I haven't tried it. The utility chkconfig is also
+designed to query and configure runtime services for different runlevels. The
+<tt>www.mandrakeuser.org</tt> site has a good page on common services/daemons,
+especially those included in recent versions of the Mandrake distribution.
+
+<p>
+A good source of information on daemons and services is the ``Linux Devices,
+Daemons, Services'' chapter of the CTDP (2000a) document.
+
+<p>
+
+<ul>
+<li> amd - runs the automount daemon for remote filesystem mounting such as
+  nfs 
+  
+<p>
+
+<li> anacron - checks delayed `cron' tasks (see below) at boot time and
+  executes them. Useful if you have cron jobs scheduled but don't run your
+  machine all the time.
+
+<p>
+
+<li> apmd - Advanced Power Management BIOS daemon. For use on machines,
+especially laptops, that support apm. Monitors battery status and can shut
+down the system if power is too low.
+
+<p>
+
+<li> arpwatch - keeps watch for ethernet IP address pairings that are
+  resolved using the ARP protocol.
+
+<p>
+
+<li> atd - runs jobs queued by `at'
+
+<p>
+
+<li> autofs - control the operation of automount daemons, used to mount and
+  unmount devices on demand
+  
+<p>
+
+<li> bootparamd - allows computers to boot from a Linux machine using the
+  BOOTP network protocol. A server process that provides information to
+  diskless clients necessary for booting
+  
+<p>
+
+<li> crond - automatic task scheduler. Manages the execution of tasks that
+  are executed at regular but infrequent intervals, such as rotating log
+  files, cleaning up /tmp directories, etc.
+  
+<p>
+
+<li> cups - daemon for print services under the Common Unix Printer System,
+  a replacement for lpd
+
+<p>
+
+<li> dhcpd - implements the Dynamic Host Configuration Protocol (DHCP) and
+  the Internet Bootstrap Protocol (BOOTP). Used to lease out IP addresses to
+  remote machines.
+
+<p>
+
+<li> drakfont - font server in Mandrake
+  
+<p>
+
+<li> fetchmail - daemon to fetch mail at regular intervals from mail servers
+
+<p>
+
+<li> ftpd - ftp server daemon
+  
+<p>
+
+<li> gated - routing daemon that handles multiple routing protocols and
+  replaces routed and egpup
+
+<p>
+
+<li> gpm - useful mouse server for applications running on the Linux
+  console.
+
+<p>
+
+<li> httpd - the Apache webserver hypertext transfer protocol daemon
+  
+<p>
+
+<li> identd - The identd server provides a means to determine the identity
+  of a user of a particular TCP connection.  Given a TCP port number pair, it
+  returns a character string which identifies the owner of that connection on
+  the server's system.
+  
+<p>
+
+<li> inetd - listens for service requests on network connections,
+  particularly <em>dial-in</em> services. This daemon can automatically load and
+  unload other daemons (ftpd, telnetd, etc.), thereby economizing on system
+  resources. In the latest version of Red Hat (7.0 at the time of writing), it
+  has been replaced by xinetd. A partial list of services controlled by inetd
+  is listed below. Under many distributions, inetd will execute scripts in the
+  file /etc/inetd.conf.
+
+<p>
+
+<li> innd - Usenet news server daemon
+  
+<p>
+
+<li> ipchains - daemon for packet forwarding. Used for configuring a
+  gateway/firewall.
+
+<p>
+
+<li> isdn provides ISDN network interfacing services
+
+<p>
+
+<li> isdn4linux - for users of ISDN cards
+
+<p>
+
+<li> kerneld - automatically loads and unloads kernel modules
+  
+<p>
+
+<li> keytable - loads the appropriate keyboard map from /etc/sysconfig/
+  keyboard
+
+<p>
+
+<li> kheader -
+
+<p>
+
+<li> kudzu - detects and configures new or changed hardware during boot
+  
+<p>
+
+<li> linuxconf - ``startup hook'' needed for the linuxconf system
+  configuration tool
+
+<p>
+
+<li> lpd - line printer and print spooler daemon
+  
+<p>
+
+<li> mcserv - server program for the Midnight Commander networking file
+  system. It provides access to the host file system to clients running the
+  Midnight file system (currently, only the Midnight Commander file manager).
+  If the program is run as root the program will try to get a reserved port
+  otherwise it will use 9876 as the port. If the system has a portmapper
+  running, then the port will be registered with the portmapper and thus
+  clients will automatically connect to the right port. If the system does not
+  have a portmapper, then a port should be manually specified with the -p
+  option (see below).
+
+<p>
+
+<li> mysql - database server daemon
+
+<p>
+
+<li> named - provides DNS services
+
+<p>
+
+<li> netfs - network filesystem mounter. Used for mounting nfs, smb and ncp 
+shares on boot.
+
+<p>
+
+<li> network -activates all network interfaces at boot time by calling
+  scripts in /etc/sysconfig/network-scripts
+
+<p>
+
+<li> nfsd - used for exporting nfs shares when requested by remote systems
+
+<p>
+
+<li> nfslock - starts and stops nfs file locking service
+
+<p>
+
+<li> numlock - locks numlock key at init runlevel change
+
+<p>
+
+<li> pcmcia - generic services for pcmcia cards in laptops
+
+<p>
+
+<li> portmap - needed for Remote Procedure Calls
+  
+<p>
+
+<li> postfix - mail transport agent which is a replacement for sendmail.
+  Now the default on desktop installations of Mandrake.
+
+<p>
+
+<li> postgresql - database server daemon
+
+<p>
+
+<li> random - random number generating daemon, related to security and
+  encryption 
+
+<p>
+
+<li> routed - manages routing tables
+
+<p>
+
+<li> rstatd - kernel statistics server. Allows users on a network to get
+  performance statistics for any connected machine.
+
+<p>
+
+<li> rusersd - provides services that allow users to find one another over
+  the network
+
+<p>
+
+<li> rwalld - allows users to use rwall to write messages on remote
+  terminals
+  
+<p>
+
+<li> rwhod - server which maintains the database used by the rwho(1) and
+  ruptime(1) programs. Its operation is predicated on the ability to broadcast
+  messages on a network.
+
+<p>
+
+<li> sendmail - mail transfer agent. This is the agent that comes with Red
+  Hat. Others, such as smtpd, are not included.
+
+<p>
+
+<li> smb - needed for running SAMBA
+
+<p>
+
+<li> snmpd - provides Simple Network Management Protocol support
+
+<p>
+
+<li> sound - daemon for managing sound
+
+<p>
+
+<li> squid - web page proxy server daemon
+
+<p>
+
+<li> syslogd - manages system log files
+  
+<p>
+
+<li> smtpd - Simple Mail Transfer Protocol, designed for the exchange of
+  electronic mail messages. Several daemons that support SMTP are available,
+  including sendmail, smtpd, rsmtpd, qmail, zmail, etc.
+  
+<p>
+
+<li> tcpd - from the tcp_wrappers package. Intercepts requests normally
+  handled by inetd and filters them through the files hosts.allow and
+  hosts.deny files, which can restrict access to services based on type of
+  service, origin of request, destination, etc. Requests are intercepted
+  because calls to particular services are replaced with calls to tcpd in
+  /etc/inetd.conf.
+
+<p>
+
+<li> telnetd - telnet server daemon
+
+<p>
+
+<li> usb - daemon for devices on Universal Serial Bus
+
+<p>
+
+<li> xfs - X font server
+
+<p>
+
+<li> xinetd - more modern replacement for inetd. It apparently allows for
+  similar kinds of access filters to the ones used by tcpd in conjunction with
+  inetd. xinetd replaces inetd as the default network services daemon in Red
+  Hat 7.0.
+
+<p>
+
+<li> xntpd - Network Time Protocol daemon. Provides a means to syncronize
+  time over the network.
+
+<p>
+
+<li> webmin - daemon for webmin web-based system administration program
+
+<p>
+
+<li> ypbind - NIS binder. Needed if computer is part of Network Information 
+Service domain.
+
+<p>
+</ul>       <h2><a name="tth_sEc8">
+8</a>&nbsp;&nbsp;Window Managers</h2>
+
+<p>
+The ``Window Managers for X'' site is extremely useful for keeping track of
+new Linux window managers. See <a href="http://winman.org"><tt>http://winman.org</tt></a>.
+
+<p>
+
+<ul>  
+<li> Afterstep - Based on Fvwm. Designed to give a similar look and feel to
+  the NextStep interface.
+  
+<p>
+
+<li> AnotherLevel - a custom configuration for fvwm2 which mimics the look
+  and feel of Windows95.
+
+<p>
+
+<li> Blackbox - a light, fast, window manager. It doesn't clutter the screen
+  with too much junk, but it gets the job done efficiently.
+  
+<p>
+
+<li> CDE - Common Desktop Environment. This is the default window manager on
+  many commercial Unix systems. There is no free version.
+  
+<p>
+
+<li> Enlightenment - Very configurable, and probably the coolest looking
+  window manager, but a bit of a resource hog.
+  
+<p>
+
+<li> Flwm - Fast, Light Window Manager. It has very few features, but is
+  very small.
+  
+<p>
+
+<li> Fvwm - F (?) Virtual Window Manager. This, along with Fvwm2, are old
+  standbies in the Linux world. They are quite configurable, but configuration
+  involves editing text files which are sometimes obscure.
+
+<p>
+
+<li> Fvwm2 - newer version of above.
+  
+<p>
+
+<li> Fvwm95 - implementation of Fvwm2 configured to look and feel like
+  Windows 95.
+  
+<p>
+
+<li> Gnome - Gnome desktop environment. A themable collection of desktop
+  utilities that can be used with different window managers. The current
+  default window manager for a gnome session is Sawfish.
+  
+<p>
+
+<li> Icewm - Ice Window Manager. Very small, very fast, quite configurable.
+  On low memory/small hard drive machines, this one is my favorite.
+  Configuration involves editing text files, but the syntax is extremely easy
+  to understand. There are also a couple of third-party programs available
+  which allow the user to configure Icewm using a graphical interface.
+  
+<p>
+
+<li> KDE - K Desktop Environment. Many of the desktop utilities can be run
+  under different window managers. I may be wrong, but I believe kikbd is the
+  only program out there that allows the user to reconfigure the keyboard
+  layout to different national keyboards on the fly, with one-click switching
+  from one to the other. Unfortunately, this utility is no longer available
+  under KDE 2.x.
+
+<p>
+
+<li> Kwm - the window manager that comes with the KDE desktop environment.
+
+<p>
+
+<li> Mwm - Motif window manager.
+
+<p>
+
+<li> Olwm - Open Look window manager.
+  
+<p>
+
+<li> Sawfish - a small, efficient, configurable window manager that is now
+  the default window manager with Gnome.
+
+<p>
+
+<li> Twm - Tab window manager.
+  
+<p>
+
+<li> UDE - Unix Desktop Environment. In early development stages. An attempt
+  to create a new type of desktop environment for Unix machines, including
+  Linux.
+  
+<p>
+
+<li> Windowmaker - One of the more popular window managers. Highly
+  configurable and themable.
+  
+<p>
+
+<li> XFce - ``Cholesterol-Free Desktop Environment''. Includes its own
+  window manager, a toolbar, a sound manager, a background manager, and a file
+  manager. It has tearoff menus, up to twelve virtual desktops, etc. It is
+  completely configurable with menus. Its toolbar looks like the one in CDE. I
+  find it easy to use and to configure, and easy on system resources.
+
+<p>
+</ul>       <h2><a name="tth_sEc9">
+9</a>&nbsp;&nbsp;Alphabetical List of Principal Commands</h2>
+
+<p>
+In the following command list, the distinction between upper case and lower
+case letters <em>is</em> important. Most of the commands are utilities that are
+run by invoking their own executable files. In some cases, they are commands
+which are internal to a shell such as bash (shell builtins). The shell
+builtins are indicated. There are now many utilities that are included with
+either the Gnome or the KDE desktop environments, so many that it would be
+difficult to include them all here. In many cases, they duplicate the
+functionality of one or more of the programs listed below. I would suggest
+consulting the online documentation for these packages.
+
+<p>
+Another good source of information on commands is the CTDP (2000b) document.
+There are different chapters which group commands in different categories.
+
+<p>
+On rpm-based systems, to find out which package owns the command <tt>foo</tt>
+(where <tt>foo</tt> is a standalone executable), use the command <tt>rpm
+  -q -f foo</tt>.
+
+<p>
+
+<ul>
+<li> a2p - translation utility from awk to Perl
+
+<p>
+
+<li> a2ps - translation utility from ``any'' to Postscript
+
+<p>
+
+<li> ac - print statistics concerning user connect time
+
+<p>
+
+<li> access - determine whether a file can be accessed
+
+<p>
+
+<li> acroread - Adobe utility for viewing pdf files
+
+<p>
+
+<li> adduser - used by root to add user to system
+
+<ul>
+
+<li> usage: adduser <em>userid</em>
+</ul>
+<p>
+
+<li> afio - utility to copy or restore files to an archive file. This
+utility is not part of the basic internal and external programs under
+Red Hat Linux. It is available as an rpm on the rpmfind.net site.
+
+<p>
+
+<li> agetty - enables login on terminals. See getty, mgetty, and uugetty.
+
+<p>
+
+<li> ali - list mail aliases
+
+<p>
+
+<li> alias - assign name to specified command list. This is actually a
+shell builtin. On my Red Hat system, I have global alias commands in
+my /etc/bashrc file and in my &nbsp;/.bashrc file. On my Slackware box, I have
+made the rm command a little bit safer with
+
+<ul>
+
+<li> alias rm='rm -i'
+</ul>
+<p>
+so that you can't recursively delete your /dev directory without telling the
+system you're sure you want to do it.
+
+<p>
+
+<li> alien - utility to convert to and from different Linux package formats.
+  Can handle Debian (deb), Stampede (stp), Red Hat (rpm) and Slackware (tgz)
+  packages.
+
+<p>
+
+<li> apropos - display command names based on keyword search
+
+<ul>
+
+<li> usage: apropos <em>keyword</em>
+</ul>
+<p>
+
+<li> apsfilter - printer filter called by lpd to deal with printing
+different types of files. This is a fairly sophisticated print filter. It is
+not set up by default in Slackware. It used to be available on the second cd
+of a Slackware distribution. Since 4.0, it is available as one of the main
+packages in the ap set. Read the mail that the installation program sends to
+the root user. I believe that Red Hat uses its own printer filters.
+
+<p>
+
+<li> ar - create, modify and extract from archives
+
+<p>
+
+<li> arch - print machine architecture type
+
+<p>
+
+<li> as - the portable GNU assembler
+
+<p>
+
+<li> asapm - AfterStep laptop advanced power management utility
+
+<p>
+
+<li> ash - a shell, a very simple shell program sometimes used on boot
+  diskettes since it takes up much less space than bash, tcsh, zsh, etc.
+
+<p>
+
+<li> asload - AfterStep cpu load monitor
+
+<p>
+
+<li> asmail - AfterStep mail checking utility
+
+<p>
+
+<li> asmodem - AfterStep utility to monitor modem status
+
+<p>
+
+<li> aspell - a spell checking program along the lines of ispell
+
+<p>
+
+<li> aspostit - X Window postit note utility
+
+<p>
+
+<li> at - executes a shell script at specified time. Use atq to show
+pending jobs, and atrm to remove jobs from the queue.
+
+<ul>
+
+<li> usage: at <em>time</em>
+
+<li> or: at -f file <em>time</em>
+</ul>
+<p>
+
+<li> atq - shows pending jobs queued by at. If run by root, shows
+everybody's pending jobs.
+
+<p>
+
+<li> atrm - removes pending jobs queued by at. Use atq to determine the
+identities of various jobs.
+
+<ul>
+
+<li> usage: atrm <em>job</em>
+</ul>
+<p>
+
+<li> awk - searches for and process patterns in a file
+
+<p>
+
+<li> banner - print banner to standard output. Syntax is
+
+<ul>
+
+<li> banner [option] [characters]
+</ul>
+<p>
+
+<li> bash - Bourne again shell. This is the default shell in the Red Hat
+installation.
+
+<p>
+
+<li> batch - queue, examine, or delete jobs for later execution. See at.
+
+<p>
+
+<li> bc - a language (compiler) similar to C, with unlimited precision
+arithmetic
+
+<p>
+
+<li> bg PID - send process with pid ``PID'' to the background. This is
+the same as executing <tt>[Ctrl]z</tt> while interacting with the running
+process. This is a shell builtin.
+
+<p>
+
+<li> bh - puts a job in the background. This is a shell builtin.
+
+<p>
+
+<li> biff - mail notification utility. Notifies user of mail arrival and
+sender's name.
+
+<p>
+
+<li> bind - displays or redefines key bindings. This is a shell builtin.
+
+<p>
+
+<li> bison - parser generator similar to yacc
+  
+<p>
+
+<li> bru - a powerful backup utility program. Commercial. Demonstration
+  versions are often included with Linux distributions such as Red Hat.
+
+<p>
+
+<li> bsh - equivalent to ash
+
+<p>
+
+<li> bunzip2 - used to uncompress files compressed with bzip2
+
+<p>
+
+<li> byacc - parser generator
+
+<p>
+
+<li> bzip2 - compresses with algorithm different from gzip
+
+<p>
+
+<li> bzless - view bzipped files
+
+<p>
+
+<li> c++ - invokes GNU C and C++ compiler
+
+<p>
+
+<li> cal - displays a 12-month calendar for the given year or a one-month
+calendar of the given month
+
+<ul>
+
+<li> usage: cal <em>month year</em>
+</ul>
+<p>
+
+<li> cat - combine, copy standard input to standard output. Used to join
+or display files.
+
+<p>
+
+<li> cd - change working directory. This is a shell builtin in bash,
+tcsh and zsh.
+
+<p>
+
+<li> cdplay - command line utility for playing audio cds
+
+<p>
+
+<li> cfdisk - similar to fdisk, but menu-driven
+
+<p>
+
+<li> chat - used to interact with a modem via a chat script
+
+<p>
+
+<li> chgrp - changes group associated with file. Can be used to change the
+group associated with subdirectories and files of a directory.
+
+<ul>
+
+<li> usage: chgrp <em>group files</em>
+
+<li> or: chgrp -R <em>group files</em>
+</ul>
+<p>
+
+<li> chkconfig - Query or update system services/daemons for different 
+runlevels. Manipulates the various symbolic links in /etc/rc.d. This utility 
+is included with many rpm-based distributions such as RedHat and Mandrake. It
+is designed to work with System V initialization scripts. Graphical tools for
+configuring system services include ntsysv, tksysv and ksysv (the latter is a
+KDE utility).
+
+<p>
+
+<li> chmod - set permissions (modes) of files or directories. A value of 4
+is used for read permission. A value of 2 is used for write permission. A
+value of 1 is used for execute permission. See umask for default file
+permissions upon file creation. Chmod can also be used to change the suid bit
+on files. The syntax for the symbolic version is
+
+<ul>
+
+<li> chmod [options] who operation permission file-list
+</ul>
+<p>
+The syntax for the absolute version is
+
+<ul>
+
+<li> chmod [options] mode file-list
+</ul>
+<p>
+To set the uid to the owner's permissions, use
+
+<ul>
+
+<li> chmod u +s file-name
+</ul>
+<p>
+To set the uid to the group's permissions, use
+
+<ul>
+
+<li> chmod g +s file-name
+</ul>
+<p>
+There are lots of security issues related to allowing a program to have
+root's permissions when run by an ordinary user. I don't pretend to
+understand all of these issues.
+
+<p>
+
+<li> chown - changes ownership of a file. Can be used recursively.
+
+<ul>
+
+<li> usage: chown <em>userid files</em>
+
+<li> or: chown -R <em>userid files</em>
+</ul>
+<p>
+
+<li> chsh - change default shell
+
+<p>
+
+<li> ci - creates or records changes in an RCS file
+
+<p>
+
+<li> clear - clear screen command
+
+<p>
+
+<li> cmp - compares two files for differences
+
+<ul>
+
+<li> usage: cmp <em>file1 file2</em>
+</ul>
+<p>
+
+<li> co - retrieves an unencoded version of an RCS file
+
+<p>
+
+<li> comm - compares sorted files
+
+<p>
+
+<li> configure - automatically configures software source code
+
+<p>
+
+<li> color-xterm - color xterm program. Under Red Hat, this is just a
+link to xterm-color.
+
+<p>
+
+<li> control-panel - graphical system configuration tool under Red Hat.
+
+<p>
+
+<li> cp - copies on or more files. Recursive copying is one simple way
+of archiving part of a directory structure. Use the command as follows:
+
+<ul>
+
+<li> cp -r /sourcedirectory /targetdirectory
+</ul>
+<p>
+
+<li> cpio - direct copy of files to an output device. Allows creation of
+archive file spanning multiple diskettes. Allows one directory structure
+to be mirrored elsewhere on the partition or on another partition. In
+order to back up an entire directory structure on diskettes, cd to the
+directory and use the following command:
+
+<ul>
+
+<li> find . -depth -print <font face="symbol">|</font
+> cpio -ov  &gt;  /dev/fd0
+</ul>
+<p>
+To restore from diskettes, use:
+
+<ul>
+
+<li> cpio -iv  &lt;  /dev/fd0
+</ul>
+<p>
+The cpio command will prompt the user to insert more diskettes as they are
+needed. The command for mirroring a directory structure is the following:
+
+<ul>
+
+<li> find . -depth -print <font face="symbol">|</font
+> cpio -pv /destinationdirectory
+</ul>
+<p>
+This copies the working directory and its contents, including
+subdirectories, into /destinationdirectory. In order to copy an individual
+file which is larger than a floppy, use:
+
+<ul>
+
+<li> find . -name nameoffile -print <font face="symbol">|</font
+> cpio -iv  &gt;  /dev/fd0
+</ul>
+<p>
+
+<li> cpkgtool - Slackware tool to install, uninstall and query packages.
+Front end to installpkg, removepkg, makepkg. This is the graphical version
+that uses ncurses.
+
+<p>
+
+<li> cpp - GNU C-compatible compiler preprocessor
+
+<p>
+
+<li> crontab - schedules command to run at regularly specified time
+
+<p>
+
+<li> csh - run C shell
+
+<p>
+
+<li> csplit - separate files into sections. See also split.
+
+<p>
+
+<li> cvs - manages concurrent acces to files in a hierarchy. Stands for
+concurrent version system. Is built on RCS. It stores successive revisions
+of files efficiently and ensures that access to files by multiple
+developers is done in a controlled manner. Useful when many developers are
+working on the same project.
+
+<p>
+
+<li> cut - selects characters or TAB-separated fields from lines of input
+and writes them to standard output
+
+<p>
+
+<li> date - displays or sets date and time
+
+<ul>
+
+<li> usage: date
+
+<li> or: date <em>date</em>
+</ul>
+<p>
+
+<li> dd - direct copy of file from one device to another. Can be used
+to make copies of boot or root diskettes for installing Linux. It can
+be used, for example, to make and exact copy of a floppy disk, as
+follows. First, place the diskette to be copied in the floppy drive. Then,
+
+<ul>
+
+<li> dd if=/dev/fd0 ibs=512  &gt;  floppy.copy
+
+<li> Replace the diskette with a fresh diskette.
+
+<li> dd if=floppy.copy bs=512 of=/dev/fd0
+</ul>
+<p>
+The ibs and bs options specify the block sizes for input and for both
+input and output. A boot disk image can be directly copied to a floppy
+using the second of the two dd commands above.
+
+<p>
+
+<li> declare - declares attributes for a variable (same as
+typeset). This is a shell builtin.
+
+<p>
+
+<li> df - displays capacity and free capacity on different physical
+devices such as hard drive partitions and floppy drives that are mounted on
+the file system. Gives free space in blocks. With the (undocumented) option
+-h, the program gives free space in Mb or Gb. This is useful for those
+accustomed to thinking of the capacity of a high-density 3.5 inch diskette
+as 1440k.
+
+<p>
+
+<li> diff - displays differences between two files
+
+<ul>
+
+<li> usage: diff <em>file1 file2</em>
+</ul>
+<p>
+
+<li> diff3 - compares three files and reports on differences
+
+<p>
+
+<li> dip - used to set up a SLIP or PPP connection. It can be used
+to set up an outgoing SLIP connection or an incoming connection.
+
+<p>
+
+<li> diplogin - used for setting up incoming dip connections. See
+the man page for dip.
+
+<p>
+
+<li> dir - a variation of the GNU ls command that defaults to printing
+file names in columns
+
+<p>
+
+<li> dircolors - set colors for GNU ls command. In Slackware, this command
+is run by the /etc/profile script. Then, whenever xterm is run with the -ls
+(login shell) option, ls displays different colors for different types of
+files. Typical usage is eval `dircolors -b`. In Red Hat and Mandrake, I get
+color directories by aliasing the ls command (see below).
+
+<p>
+
+<li> display - set display for output of programms under X Windows. Can be
+used to run a program on a remote machine while displaying the output on a
+local machine. The remote machine must have permission to send output to the
+local machine. This is actually an environment variable. See the more
+detailed discussion in connection with the xhost command below.
+
+<p>
+
+<li> dmesg - displays messages from /var/log relative to the most recent
+boot
+
+<p>
+
+<li> dos - invoke the DOSEMU DOS emulator
+
+<p>
+
+<li> du - displays information on disk usage. The command
+
+<ul>
+
+<li> du / -bh | less
+</ul>
+<p>
+will display detailed disk usage for each subdirectory starting at root,
+giving files sizes in bytes.
+
+<p>
+
+<li> dumpkeys - print information about the keyboard driver's translation
+tables to standard output
+
+<p>
+
+<li> dvilj - send a dvi file to a Laserjet printer. There are
+specialized versions for individual models of Laserjet printer.
+
+<p>
+
+<li> dvilj2p - specialized version of dvilj for the IIp series of
+printers. See above.
+
+<p>
+
+<li> dvips - send a dvi file to a Postscript printer, to a Postscript
+capable Laserjet printer, or to a file (with the -o option). There is a
+switch to print only a subset of the pages, and another switch to print in
+landscape mode. Use -t landscape, which is one of the arguments to the paper
+type switch. If you have one page of a document that is a wide table, and
+you wish to print this in landscape mode, use
+
+<ul>
+
+<li> dvips <em>filename -pp pagenumber -t landscape</em>
+</ul>
+<p>
+
+<li> e2fsck - check an ext2 filesystem. The syntax is
+
+<ul>
+
+<li> e2fsck <em>/dev/devicename</em>
+</ul>
+<p>
+where the filesystem is on /dev/devicename. The device should not be mounted,
+and this program must be run as root.
+
+<p>
+
+<li> echo - write arguments to standard output. One use is to print out
+information about environment variables, as in
+
+<ul>
+
+<li> echo $PATH - list paths to search
+
+<li> echo $HOME or echo <tt>~</tt> - list name of home directory
+</ul>
+<p>
+This is a shell builtin.
+
+<p>
+
+<li> editres - a dynamic resource editor for X Toolkit applications. Allows
+the user to change X resources for individual applications.
+
+<p>
+
+<li> efax - fax program
+
+<p>
+
+<li> efix - convert between fax, text, bit-map and gray-scale formats
+
+<p>
+
+<li> egrep - search files for lines that match regular expressions. Runs
+faster than grep and fgrep.
+
+<p>
+
+<li> elm - an interactive mail system
+
+<p>
+
+<li> elvis - a version of the vi text editor
+
+<p>
+
+<li> emacs - screen oriented text editor
+
+<p>
+
+<li> env - desplay the current environment or set a variable equal to a
+new value
+
+<p>
+
+<li> eval - scans and evaluates the command line. See dircolors
+command. This is a shell builtin.
+
+<p>
+
+<li> ex - interactive command-based editor. The man page lists it as being
+the same as vim, an improved version of vi.
+
+<p>
+
+<li> exec - system call which creates a subshell to execute a binary or a
+script. This is a shell builtin.
+
+<p>
+
+<li> execve - a variation of the exec command.
+
+<p>
+
+<li> exit - exit a shell. This is a shell builtin.
+
+<p>
+
+<li> expand - convert tabs in files to spaces and write to standard output
+
+<p>
+
+<li> expect -  a program that ``talks'' to other interactive programs
+according to a script. Following the script, Expect knows what can be 
+expected from a program and what the correct response should be. An
+interpreted language provides branching and high-level control  structures
+to direct the dialogue. In addition, the user can take  control and
+interact directly when desired, afterward returning control to the script.
+
+<p>
+
+<li> export - place the value of a variable in the calling environment
+(makes it global). This is a shell builtin.
+
+<p>
+
+<li> expr - utility evaluates an expression and displays the result
+
+<p>
+
+<li> f2c - FORTRAN to C translator
+
+<p>
+
+<li> f77 - FORTRAN 77 compiler
+
+<p>
+
+<li> false - null command that returns an unsuccessful exit status
+
+<p>
+
+<li> fax - simple user interface to efax and efix programs
+
+<p>
+
+<li> fc - views, edits, and executes commands for the history list. This
+is a shell builtin.
+
+<p>
+
+<li> fdformat - low level format of a floppy device
+
+<p>
+
+<li> fetchmail - retrieve mail from a remote mail server and pass it to
+local SMTP agents on the local machine
+
+<p>
+
+<li> fdisk - used to partition hard drives
+
+<ul>
+
+<li> usage: fdisk <em>device</em>
+</ul>
+<p>
+
+<li> fg PID - bring a background or stopped process with pid ``PID'' to
+the foreground. This is a shell builtin. If only one process is running in
+background mode, fg with no argument is sufficient to bring it to the
+foreground
+
+<p>
+
+<li> fgrep - search for patterns in files
+
+<p>
+
+<li> file - displays classification of a file or files according to the
+type of data they contain
+
+<p>
+
+<li> find - find files according to a large variety of search
+criteria. The find command that I use the most is
+
+<ul>
+
+<li> find . -name filename -print
+</ul>
+<p>
+in order to find files matching a particular name on the working directory
+and all subdirectories. Find can be incredibly powerful, but it is
+incredibly obscure.
+
+<p>
+
+<li> finger - display information about a specified userid or userids
+
+<p>
+
+<li> fmt - simple text formatting utility. Tries to make all nonblank
+lines nearly the same length.
+
+<p>
+
+<li> fold - break lines of specified files so they are no wider than a
+specified lengths
+
+<p>
+
+<li> fortune - available in the bsdgames package in Slackware and other
+distributions. Put a call to fortune in /etc/profile and get something
+inspirational or amusing every time you fire up an xterm as a login shell.
+
+<p>
+
+<li> free - gives used and free memory on system along with other useful information
+
+<p>
+
+<li> fromdos - takes a DOS text file from stdin and sends a UNIX file to
+stdout.
+
+<p>
+
+<li> fsck - file system check and repair
+
+<p>
+
+<li> ftp - file transfer over network
+
+<p>
+
+<li> g++ - C++ compiler
+
+<p>
+
+<li> g77 - GNU Fortran 77 compiler
+
+<p>
+
+<li> gawk - GNU awk, mostly for processing delimited text files
+
+<p>
+
+<li> gcc - invoke C, C++ compiler
+
+<p>
+
+<li> getipts - parses arguments to a shell script. This is a shell
+builtin.
+
+<p>
+
+<li> getkeycodes - print kernel's scancode-to-keycode mapping table
+
+<p>
+
+<li> ghostscript - set of printing utilities. It seems to be obligatory to
+have this if a T<sub>E</sub>X installation such as teT<sub>E</sub>X is installed. How they
+communicate with one another is somewhat obscure.
+
+<p>
+
+<li> ghostview - Aladdin ghostscript interpreter/previewer
+
+<p>
+
+<li> gimp - image manipulation and paint program
+
+<p>
+
+<li> glint - Red Hat graphical front end for the rpm package installer and
+manager.
+
+<p>
+
+<li> grep - used to find a string within a file. The -i option returns
+matches without regard to case. The -n option means that each line of output
+is preceded by file name and line number. The -v option causes non-matched
+lines to be printed.
+
+<ul>
+
+<li> usage: grep <em>pattern files</em>
+
+<li> or: grep -i <em>pattern files</em>
+
+<li> or: grep -n <em>pattern files</em>
+
+<li> or: grep -v <em>pattern files</em>
+</ul>
+<p>
+
+<li> groupadd - create a new group on the system
+
+<p>
+
+<li> groups - shows which groups you are in
+  
+<p>
+
+<li> grub - Gnu grand unified bootloader. Can be used instead of lilo to
+  boot multiple operating systems. I encountered a couple of snafus trying to
+  install grub on my home machine after installing Mandrake 8.0 and choosing
+  the lilo bootloader during the initial install. The Mandrake installation
+  program set up /boot/vmlinuz as a symlink to the actual kernel,
+  vmlinuz-2.4.3-20mdk. It took me a while to figure out that grub doesn't
+  understand symbolic links. The documentation suggests installing grub on a
+  diskette using the ``dd'' command. This refused to work, but
+  
+<ul>
+  
+<li> grub-install '(fd0)'
+  </ul>
+<p>
+  did work. The single quotes are necessary. The files necessary to run grub
+  are normally located in /boot/grub. Once the file menu.lst has been edited
+  and appropriated entries added to boot the different operating systems on
+  one's hard disk(s), the following sequence of commands can be used to
+  install grub in the master boot record (MBR) sector of the hard disk:
+  
+<ul>
+  
+<li> root (hd0,<em>x</em>)
+  
+<li> setup (hd0)
+  </ul>
+<p>
+  Here, the <em>x</em> should be replaced by the partition where the /boot/grub
+  directory is located, which is probably the root partition of the Linux
+  system. Note that grub has its own conventions for naming devices and
+  numbering partitions, so that for example a partition which is called hda6
+  under Linux will be called (hd0,5) by grub.
+
+<p>
+
+<li> grub-install - command to install grub on the hard drive (or floppy
+  drive).
+
+<p>
+
+<li> gunzip - used to uncompress files compressed with gzip
+
+<p>
+
+<li> gv - PostScript and PDF previewer, based on ghostview
+
+<p>
+
+<li> gvim - see vi
+
+<p>
+
+<li> gzexe - compresses executables
+
+<p>
+
+<li> gzip - used to compress or decompress files
+
+<p>
+
+<li> halt - shut down system as root, without reboot, immediately
+
+<p>
+
+<li> hash - remembers the location of commands in the search path. This
+is a shell builtin.
+
+<p>
+
+<li> head - displays first part of a file
+
+<p>
+
+<li> history - command for viewing and manipulating the shell command
+history list
+
+<p>
+
+<li> host - look up host names using domain server
+
+<p>
+
+<li> hostname - used to get or set hostname. Typically, the host name is
+stored in the file /etc/HOSTNAME.
+
+<p>
+
+<li> hwclock - used to query and set the hardware clock
+
+<p>
+
+<li> hylafax - commercial fax program
+
+<p>
+
+<li> id - display userid and groupid
+
+<p>
+
+<li> inetd - daemon which starts up other daemons on demand. Configured in
+/etc/inetd.conf.
+
+<p>
+
+<li> ifconfig - display (as root) information on network interfaces that
+are currently active. First ethernet interface should be listed as
+eth0, second as eth1, etc. First modem ppp connection should be listed
+as ppp0, etc. The ``lo'' connection is ``loopback'' only.
+
+<p>
+
+<li> ifdown - shut down the network interface
+
+<p>
+
+<li> ifup [interface_name] - start up the interface
+
+<p>
+
+<li> info - display system information. This is the GNU hypertext reader.
+
+<p>
+
+<li> init - the mother of all processes, run at bootup, executes commands
+in /etc/inittab. Can be used (with root privileges) to change the system run
+level.
+
+<ul>
+
+<li> usage: init <em>run_level</em>
+</ul>
+<p>
+
+<li> insmod - used (by root) to install modular device drivers
+
+<p>
+
+<li> installpkg - Slackware command to install one of the packages from
+the program sets
+
+<p>
+
+<li> intr - interrupt key, usually [Ctrl-C]
+
+<p>
+
+<li> ispell - checks files for spelling errors
+
+<ul>
+
+<li> usage: ispell <em>files</em>
+</ul>
+<p>
+
+<li> jed - programmer's file editor. Behaves like emacs. Has modes for
+T<sub>E</sub>X, FORTRAN, C, etc.
+
+<p>
+
+<li> jobs - displays list of current jobs in the background. This is a
+shell builtin.
+
+<p>
+
+<li> joe - simple WordStar-like text editor. It can be invoked in emacs
+emulation mode with jemacs and in WordStar emulation mode with jstar.
+
+<p>
+
+<li> jove - Joseph's Own Version of Emacs. A simple emacs clone.
+
+<p>
+
+<li> kbd_mode - print current keyboard mode
+
+<p>
+
+<li> kernelcfg - GUI to add/remove kernel modules (as root in X
+terminal).
+
+<p>
+
+<li> kerneld - kernel daemon, a process that stays in memory and does all
+sorts of useful stuff, like automatic loading of device driver modules
+
+<p>
+
+<li> kikbd - a utility program that comes with KDE that allows users to
+switch on the fly among different international keyboards. It can be used
+under different window managers than kfm.
+
+<p>
+
+<li> kill - sends a signal to (especially to terminate) a job or
+process. This is a shell builtin in bash, tcsh and zsh.
+
+<p>
+
+<li> killall - kill processes by name. Kill all processes which are
+instances of the speciffied program. Also used to send signals to processes 
+or restart them.
+
+<p>
+
+<li> killall5 - kill all processes except the ones on which it depends
+
+<p>
+
+<li> last - generate a listing of user logins
+
+<p>
+
+<li> lastlog - prints the last login times of all users
+
+<p>
+
+<li> latex - compile a L<sup>A</sup>T<sub>E</sub>X file
+
+<p>
+
+<li> ldconfig - creates the necessary links and cache (for use by the
+run-time linker, ld.so) to the most recent shared libraries found in the
+directories specified on the command line, in the file /etc/ld.so.conf, and in
+the trusted directories (/usr/lib and /lib). Ldconfig checks the header and
+file names of the libraries it encounters when determining which versions
+should have their links updated. Ldconfig ignores symbolic links when scanning
+for libraries.
+
+<p>
+
+<li> ldd - list the shared libraries on which a given executable depends,
+and where they are located
+
+<p>
+
+<li> leave - display reminder at specified time
+
+<p>
+
+<li> less - Linux alternative to ``more'' command. Displays text files,
+one screenful at a time. When less pauses, there is a large number of
+available commands to tell it what to do next. One can scroll both
+forwards and backwards.
+
+<p>
+
+<li> let - evaluates a numeric expression. This is a shell builtin.
+
+<p>
+
+<li> lilo - installs boot loader on the boot sector of a hard drive, of a
+diskette, or in another location. My 486 has a hard drive that is too
+large for the machine's BIOS, so I have to boot from a floppy. To create a
+boot diskette, I do the following (as root):
+
+<ul>
+
+<li> /sbin/fdformat /dev/fd0H1440
+
+<li> /sbin/mkfs.ext2 /dev/fd0
+
+<li> mount -t ext2 /dev/fd0 /mnt/floppy
+
+<li> cp -dp /boot/* /mnt/floppy
+
+<li> /sbin/lilo -C /etc/lilo.flop
+</ul>
+<p>
+The -C option to lilo has lilo use the lilo.flop file instead of the
+default lilo.conf.
+
+<p>
+
+<li> linuxconf - interactive tool for configuring Linux system. Uses X
+if loaded. This is a Gnome tool. It comes with my Red Hat distribution, and
+is not included with Slackware. It would seem to be the easiest way to
+configure Linux under Slackware. Version 1.15 is available for Slackware.
+There is a pretty good introduction to the use of linuxconf in the Red Hat
+5.2 installation manual, which is available online at their web site.
+
+<p>
+
+<li> ln - creates a link to a file. Used to create hard links and, with
+the -s option, symbolic links which can link files on different disk
+partitions. The syntax is
+
+<ul>
+
+<li> ln [options] source [dest]
+</ul>
+<p>
+
+<li> locate filename - find the file name which contains the string
+``filename''. The syntax is easier than the find command.
+
+<p>
+
+<li> lock - temporarily lock terminal
+
+<p>
+
+<li> lockfile - create semaphore file(s), used to limit access to a file
+
+<p>
+
+<li> - log in to system
+
+<p>
+
+<li> logname - consult /etc/utmp for user's login name
+
+<p>
+
+<li> logout - execute logout as individual user and bring up login: prompt
+
+<p>
+
+<li> look - look for strings in files
+
+<p>
+
+<li> lpq - show print jobs that are waiting
+
+<p>
+
+<li> lpr - send file to be printed
+
+<p>
+
+<li> lprm - cancel a job from print queue
+
+<p>
+
+<li> ls - list directory contents. To get colored directory listings
+under Red Hat, Mandrake, etc., use
+
+<ul>
+
+<li> ls -color
+</ul>
+<p>
+To get this all the time, add
+
+<ul>
+
+<li> alias ls='ls -color=auto'
+</ul>
+<p>
+to .bashrc. The following command
+
+<ul>
+
+<li> alias ls='ls -Fskb -color=auto'
+</ul>
+<p>
+will give directory listings in color, with file sizes in kilobytes, and
+append a character to the file to indicate its type.
+
+<p>
+
+<li> lsattr - list attributes of files in ext2 file system
+
+<p>
+
+<li> lsmod - used (by root) to show kernel modules currently loaded
+
+<p>
+
+<li> lspci - utility to display information on pci buses and hardware 
+devices attached to them. Part of the pciutils package that comes with many 
+Linux distributions.
+
+<p>
+
+<li> lspnp - utility to display information about pnp devices. Part of the 
+pcmcia or kernel-pcmcia package, depending on the distribution.
+
+<p>
+
+<li> m4 - an implementation of the traditional UNIX macro processor. It
+can be used with the sendmail configuration package in Red Hat (and
+Slackware) to generate a sendmail.conf configuration file without having to
+edit the configuration file directly.
+
+<p>
+
+<li> magicfilter - general purpose printer filter. See apsfilter
+above. apsfilter is the printer filter that comes with the Red Hat
+and Slackware distributions.
+
+<p>
+
+<li> mail - sends or reads electronic mail
+
+<p>
+
+<li> make - keeps a set of programs current. This is a utility that helps
+when developing a set of programs. It works by executing a script called
+makefile, Makefile or GNUmakefile in the working directory. It is very
+often used in combination with configure when compiling and installing
+noncompiled software packages.
+
+<p>
+
+<li> makebootdisk - command in Slackware to do just what the name says
+
+<p>
+
+<li> MAKEDEV - executable script to make device files on /dev
+
+<p>
+
+<li> makeswap - configures swap space
+
+<p>
+
+<li> man - displays information from online Unix reference manual
+
+<p>
+
+<li> manpath - attempt to determine path to manual pages
+
+<p>
+
+<li> mc - Midnight Commander file manager and visual shell
+
+<p>
+
+<li> mesg - enables/disables reception of messages
+
+<p>
+
+<li> minicom - terminal program
+
+<p>
+
+<li> mkdir - create a directory
+
+<p>
+
+<li> mkfs - create a file system (format) on a device or partition. Should
+be invoked after lowlevel formatting of the disk using fdformat. It has
+several versions which are all links to the basic program, such as mkfs.ext2
+and mkfs.msdos.
+
+<p>
+
+<li> mkswap - creates a Linux swap space on the specified hard disk
+parition (root privileges neede)
+
+<ul>
+
+<li> usage: mkswap <em>device</em>
+</ul>
+<p>
+
+<li> more - list file contents, stopping after each full screen
+
+<p>
+
+<li> mount -t [fstype] [device] [mountpoint] - mount device using
+filesystem of type [fstype] with device name [device] at the location
+[mountpoint] in the filesystem directory tree
+
+<p>
+
+<li> mount -a - mount all filesystems according to the specifications in
+/etc/fstab
+
+<p>
+
+<li> mouseconfig - mouse configuration utility under Red Hat. Located in
+/usr/sbin.
+
+<p>
+
+<li> mpage - print multiple pages per sheet on a Postscript printer. Can
+also be used to print a page in landscape mode.
+
+<p>
+
+<li> Mtools - package of MS-DOS utilities. Includes the following
+commands.
+
+<ul>
+
+<li> mcd - changes working directory on DOS disk
+
+<li> mcopy - copies DOS files from one directory to another
+
+<li> mdel - deletes DOS files
+
+<li> mdir - lists contents of DOS directories
+
+<li> mformat - adds DOS formatting information to a disk
+
+<li> mtype - displays contents of a DOS file
+</ul>
+<p>
+The default device for execution of these commands is /dev/fd0 and can be
+referred to as ``a:''.
+
+<p>
+
+<li> mv - moves (renames) files
+
+<p>
+
+<li> netconf - used (as root) to set up network
+
+<p>
+
+<li> newaliases - rebuilds the /etc/aliases database used by sendmail. Must
+be rerun every time /etc/aliases is modified for the changes to take effect.
+
+<p>
+
+<li> newgrp - similar to login. Changes user's identification
+
+<p>
+
+<li> nice program_name - sets the priority of the program
+``program_name''.
+
+<p>
+
+<li> nm - lists the symbols from object files objfile. If no object
+files are given as arguments, nm assumes `a.out'.
+
+<p>
+
+<li> nohup - runs a command that keeps running after logout. The command is
+in principle immune to hangups, and must have output to a non tty. According
+to <em>Linux in a Nutshell</em>, this is necessary only in the Bourne shell,
+since modern shells preserve background processes by default.
+
+<p>
+
+<li> ntsysv - run level editor under Red Hat. This is the equivalent
+of tksysv, but does not require a graphical interface.
+
+<p>
+
+<li> nxterm - color xterm program. The man page for nxterm under Red Hat
+brings up the same page as xterm.
+
+<p>
+
+<li> od - dumps contents of a file
+
+<p>
+
+<li> passwd - change login password
+
+<p>
+
+<li> paste - joins corresponding lines from files
+
+<p>
+
+<li> patch - updates source code. Attempts to update a file from a file
+of change information, or pathces, created by diff.
+
+<p>
+
+<li> pathchk - determine validity and portability of filenames
+
+<p>
+
+<li> pdflatex - part of the pdftex program suite. Produces pdf output from
+a L<sup>A</sup>T<sub>E</sub>X file.
+
+<p>
+
+<li> pdftex - produces pdf output from a TeX file. See also pdflatex. This
+program is part of the tetex 0.9 distribution that is included with Red Hat
+5.2 and above, and with Slackware 4.0 and above. It is also available as a
+separate program.
+
+<p>
+
+<li> perl - practical extraction and report language
+
+<p>
+
+<li> pg - display data one screenful at a time
+
+<p>
+
+<li> pico - simple screen oriented text editor. It is included as part
+of the Pine program. 
+
+<p>
+
+<li> ping - check if Internet computer is responding. Can also measure
+the time it takes the queried computer to respond.
+
+<p>
+
+<li> pkgtool - Slackware tool to install, uninstall and query packages.
+Front end to installpkg, removepkg, makepkg. The cpkgtool is the ncurses
+graphical version of this program.
+
+<p>
+
+<li> popclient - retrieve mail via the Post Office Protocol. Supports POP2
+and POP3.
+
+<p>
+
+<li> popd - pops the top directory of the directory stack and uses cd to
+change to that directory. This is a shell builtin.
+
+<p>
+
+<li> pr - paginates files for printing
+
+<p>
+
+<li> printenv - display list of environment variables
+
+<p>
+
+<li> printtool - run (as root) in an X terminal to configure your
+printer(s)
+
+<p>
+
+<li> ps - displays status of processes. Use the -a option for processes
+for all users. Use the -x option to include processes not attached to a
+terminal.
+
+<p>
+
+<li> pstree - display processes in the form of a tree structure. Killing a
+  parent process will also kill all the children and their descendants.
+
+<p>
+
+<li> pushd - pushes the argument onto the top of the directory stack and
+uses cd to change to that directory. This is a shell builtin.
+
+<p>
+
+<li> pwd - print absolute path of working directory. This is a shell
+builtin.
+
+<p>
+
+<li> pwchk - checks the integrity of password and shadow files
+
+<p>
+
+<li> pwconv - converts passwords to the shadow password format
+
+<p>
+
+<li> pwunconv - unconverts passwords from the shadow password
+  format. Generates a standard Unix password file.
+
+<p>
+
+<li> python - interpreted, interactive, object-oriented programming
+language
+
+<p>
+
+<li> rcp - copy one or more files to or from remote computer. The syntax
+is poorly explained in the documentation that I have, including the man
+pages. Usage is:
+
+<ul>
+
+<li> rcp filename username@remotehost:path
+</ul>
+<p>
+The user's home directory on the remote system must contain the file .rhosts
+with a list of users (preceded by the full domain name or exact IP address of
+their machine) with access privileges.
+
+<ul>
+
+<li> localhostname username
+</ul>
+<p>
+
+<li> rcs - creates or changes the attributes of an RCS file. Stands for
+Revision Control System.
+
+<p>
+
+<li> rdev - query/set image root device, swap device, RAM disk size, or
+video mode in kernel
+
+<p>
+
+<li> read - reads line from standard input. This is a shell builtin.
+
+<p>
+
+<li> readonly - declares a variable to be read only. This is a shell
+builtin.
+
+<p>
+
+<li> reboot - in Slackware, reboots the system. Seems to be equivalent to
+shutdown -r now in generic Linux.
+
+<p>
+
+<li> renice program_name - resets the priority of process
+``program_name''.
+
+<p>
+
+<li> reset - used to reset the screen characteristics. This is useful if
+the screen gets messed up from, for example, trying to display a binary
+file in an xterm.
+
+<p>
+
+<li> return - exits from a function. This is a shell builtin.
+
+<p>
+
+<li> rlog - prints a summary of the history of an RCS file
+
+<p>
+
+<li> rlogin - log in to remote computer. The general syntax is as
+follows, using the UQAM Nobel machine as an example:
+
+<ul>
+
+<li> rlogin -l userid nobel.si.uqam.ca
+</ul>
+<p>
+The remote computer must recognize the local user and the local machine. See
+the rcp command for how to set up the .rhosts file on the remote machine.
+
+<p>
+
+<li> rm - remove files or directories. With the -r (recursive) option
+(very dangerous!), can be used to remove the contents of a specified
+directory including all subdirectories.
+
+<p>
+
+<li> rmail - interpret and handle remote mail received via uucp
+
+<p>
+
+<li> rmdir - remove empty directories
+
+<p>
+
+<li> rmmod - used to remove modular device drivers
+
+<p>
+
+<li> route -n - show routing table. The n option returns numerical
+addresses rather than names.
+
+<p>
+
+<li> rpm - invokes the Red Hat package manager in command line mode. I
+often use this command in query mode to query packages about what files
+they contain and to find out which package owns a particular
+file. Examples are
+
+<ul>
+
+<li> rpm -qil foo. Gives package information and a file list for the
+package foo.
+
+<li> rpm -qfil foo. Gives package information and a file list for the
+package that owns the file foo. Foo must be in the working directory, or the
+full path to foo must be specified.
+</ul>
+<p>
+We need to find out about installing the rpm package on a Slackware box.
+It's probably better to use a package converter such as alien.
+
+<p>
+
+<li> rpm2tgz - an extremely useful utility on Slackware systems that
+converts rpm packages to tgz format. They can then be installed using the
+installpkg command (or pkgtool).
+
+<p>
+
+<li> rsh - execute shell command on a remote computer. See rcp and rlogin.
+
+<p>
+
+<li> rstat - summarize host's status: uptime, load averages, and current
+time
+
+<p>
+
+<li> ruptime - show host status of local machines
+
+<p>
+
+<li> rusers - list who is logged on local machines
+
+<p>
+
+<li> rwall - write to all users over a network
+
+<p>
+
+<li> rwho - show who is logged in on a LAN. The rwho service must be
+enabled for this command to run. If it isn't, run ``setup'' as root. I
+don't understand this last remark, which comes from ``Linux Newbie
+Administrator Guide''.
+
+<p>
+
+<li> rxvt - a terminal program similar to xterm, but which has less
+features and uses less memory
+
+<p>
+
+<li> sed - edits a file (not interactively). Also a tool for processing
+text files.
+
+<p>
+
+<li> set - set or display value of shell variables. This is a shell
+builtin. The command
+
+<ul>
+
+<li> set | less
+</ul>
+<p>
+prints the current user environment, giving the values of currently
+defined variables.
+
+<p>
+
+<li> setenv - set or display value of environment variables
+
+<p>
+
+<li> setserial - used by root to configure a serial port
+
+<p>
+
+<li> setterm - set terminal attributes for a virtual console
+
+<p>
+
+<li> setuid - set the id of a program when it is run. Used, for example,
+to give root privileges to a program run by an ordinary user. This is
+actually done by running the chmod program as root. See the chmod command
+for the syntax.
+
+<p>
+
+<li> setup - Slackware program to set up program sets and configure
+system. Setup devices and file systems, mount root file system
+
+<p>
+
+<li> sh - standard UNIX shell. On Linux, just another name for bash.
+
+<p>
+
+<li> shift - promotes each command-line argument. This is a shell builtin.
+
+<p>
+
+<li> showmount - show information about an nfs server
+
+<p>
+
+<li> shutdown - reboot or shut down system as root, after specified amount
+of time. With the -r option, reboot. With the -h option, halt the system.
+
+<ul>
+
+<li> usage: shutdown -r <em>minutes</em>
+</ul>
+<p>
+
+<li> sleep - creates process that sleeps for specified interval
+
+<p>
+
+<li> sliplogin - attaches a SLIP interface to standard input. Used
+to allow dialin SLIP connections.
+
+<p>
+
+<li> sort - sorts and/or merge files
+
+<p>
+
+<li> split - split file into specified number of segments
+
+<p>
+
+<li> ssh - secure shell. Apparently has many of the same functionalities
+as rlogin, telnet, ftp, rsh, etc., with better security and encryption
+features. We may want to learn how to set this up and use it.
+
+<p>
+
+<li> startx - front end to xinit in Linux. This is a script which starts
+up X clients and shuts down the X server on exit from the window manager.
+
+<p>
+
+<li> startx <tt>--</tt> :1 - start the next X window session on the
+display 1 (the default is opened on display 0). One can switch between
+different graphical displays using <tt>[Ctrl][Alt][F7]</tt>,
+<tt>[Ctrl][Alt][F8]</tt>, etc.
+
+<p>
+
+<li> stty - sets or displays operating options for terminal
+
+<p>
+
+<li> su - log in as another user, including root
+
+<p>
+
+<li> sudo - allows individual users to have root permission to perform
+specified tasks
+
+<p>
+
+<li> swapoff - disables swap disk
+
+<p>
+
+<li> swapon - enables swap disk
+
+<p>
+
+<li> symlinks - provide list of and information about symbolic links
+
+<p>
+
+<li> sync - writes memory buffers to physical devices
+
+<p>
+
+<li> systat - query host for system information
+
+<p>
+
+<li> tac - print file in reverse
+
+<p>
+
+<li> tail - displays the last part of a file
+
+<p>
+
+<li> talk - visual communication program that copies lines from one terminal
+to that of another user
+
+<p>
+
+<li> tar - file compression and archiving utility. I find the syntax of
+this command to be frustratingly opaque. The following works for me.  To
+use this command to unzip gzipped tarballs in verbose mode, use
+
+<ul>
+
+<li> tar -xvzf filename.tgz
+</ul>
+<p>
+To create a tarball from files in a given directory and its
+subdirectories, use
+
+<ul>
+
+<li> tar -cvzf filename.tgz sourcename
+</ul>
+<p>
+Sourcename can be the name of a single file, a wildcard such as *, or the
+name of a subdirectory. There seem to be two different conventions
+concerning gzipped tarballs. One often encounters .tar.gz. The other
+popular choice is .tgz. Slackware packages use the latter convention. The
+command can also be used to archive a file, a group of files, or a
+directory (with its subdirectories) on tape or onto floppies. If the
+material to be archived exceeds the capacity of the backup medium, the
+program will prompt the user to insert a new tape or diskette. Use the
+following command to back up to floppies:
+
+<ul>
+
+<li> tar -cvf /dev/fd0 filename(s) or directoryname(s)
+</ul>
+<p>
+The backup can be restored with
+
+<ul>
+
+<li> tar -xvf /dev/fd0
+</ul>
+<p>
+Tar can be used for other things. To mirror all the files and
+subdirectories in from-stuff to to-stuff, use the commands
+
+<ul>
+
+<li> cd from-stuff
+
+<li> tar cf - . | (cd ../to-stuff; tar xvf -)
+</ul>
+<p>
+No tar file is ever written to disk. The data is sent by pipe from one tar
+process to another. This example is taken from <em>Running Linux</em>,
+p.177. To list the table of contents of a tar archive, use
+
+<ul>
+
+<li> tar tvf tarfile
+</ul>
+<p>
+To extract individual files from a tar archive, use
+
+<ul>
+
+<li> tar xvf tarfile files
+</ul>
+<p>
+where files is the list of files to extract. When extracting files, tar
+creates missing subdirectories underneath the current directory in which the
+cammand is invoked.
+
+<p>
+
+<li> tcl - scripting language
+
+<p>
+
+<li> tcsh - extended version of the C shell
+
+<p>
+
+<li> tee - copy standard input to standard output and one or more files
+
+<p>
+
+<li> telinit - used to change run level. Exact run level that corresponds
+to single-user, multi-user, and X levels depends on distribution.
+
+<p>
+
+<li> telnet - remote login over network
+
+<p>
+
+<li> test - evaluates an expression or compares arguments. This is a
+shell builtin in bash, tcsh and zsh.
+
+<p>
+
+<li> tftp - user interface to TFTP protocol
+
+<p>
+
+<li> time - displays times for the current shell and its children. This
+is a shell builtin. Strange, because there is also a /usr/bin/time program
+on my Red Hat system.
+
+<p>
+
+<li> tin - Netnews reader
+
+<p>
+
+<li> tkdesk - graphical desktop file manager for X
+
+<p>
+
+<li> tksysv - graphical runlevel editor under Red Hat. Allows root to
+configure the services that are started at each run level.
+
+<p>
+
+<li> tload - display system load average in graph format
+
+<p>
+
+<li> top - dynamically displays process status
+
+<p>
+
+<li> touch - update access and modification times of a file. If the file
+does not exist on disk, an empty file is created.
+
+<p>
+
+<li> tr - translation utility that can be used, for example, to replace
+specified characters in a text file
+
+<p>
+
+<li> trap - traps a signal. This is a shell builtin.
+
+<p>
+
+<li> true - null command that returns a successful exit status
+
+<p>
+
+<li> tset - initializes terminal
+
+<p>
+
+<li> tty - shows special file that represents your terminal. Displays
+the terminal pathname.
+
+<p>
+
+<li> type - displays how each argument would be interpreted as a
+command. This is a shell builtin.
+
+<p>
+
+<li> typeset - declares attributes for a variaable (same as
+declare). This is a shell builtin.
+
+<p>
+
+<li> ul - translate underscores to underlining
+
+<p>
+
+<li> umask - establishes the file-creation permissions mask. Usage is
+
+<ul>
+
+<li> umask xyz
+</ul>
+<p>
+The system subtracts x, y and z from the owner, group and other file
+permissions that it would otherwise assign to new files. This is a shell
+builtin.
+
+<p>
+
+<li> umount [device] - finish writing to the device and remove it
+from the active filesystem. The command umount -a will (re)mount all file
+systems listed in /etc/fstab.
+
+<p>
+
+<li> unalias - remove name previously defined by alias. This is a shell
+builtin.
+
+<p>
+
+<li> uname - displays information about the system. With no arguments,
+it displays the name of the operating system. With the -a option, it
+displays information about the operating system, the host name, and
+hardware.
+
+<p>
+
+<li> uniq - displays lines of a file that are unique
+
+<p>
+
+<li> unset - removes a variable or function. This is a shell builtin.
+
+<p>
+
+<li> unzip - uncompress files compressed with the zip utility, compatible
+with DOS PKzip
+
+<p>
+
+<li> updatedb - update file database used by locate command
+
+<p>
+
+<li> uptime - shows the time, how long the system has been up, the number
+of users, and average load.
+
+<p>
+
+<li> useradd - same as adduser
+
+<p>
+
+<li> userdel - remove an account (as root). The user's home
+directory and undelivered mail must be dealt with separately.
+
+<p>
+
+<li> users - prints list of users on the system
+
+<p>
+
+<li> vdir - variant of the GNU version of the ls command. Defaults to
+printing out the long version of directory entries.
+
+<p>
+
+<li> vi - standard screen oriented Unix editor
+
+<p>
+
+<li> view - vi in read-only mode
+
+<p>
+
+<li> vim - improved vi editor
+
+<p>
+
+<li> vrfy - query remote host to verify the accuracy of an email address
+
+<p>
+
+<li> w - display info about userids and active processes
+
+<p>
+
+<li> wait - waits for a background process to terminate. This is a shell
+builtin.
+
+<p>
+
+<li> wc - displays number of lines, characters and words in a file
+
+<p>
+
+<li> Wharf - the AfterStep application dock module
+
+<p>
+
+<li> whatis - display one-line summary of specified command
+
+<p>
+
+<li> whereis - use to find utilities in standard locations
+
+<p>
+
+<li> which - used to find utilities in search path. Will return the
+absolute directory path of the named utility program.
+
+<p>
+
+<li> who - display information about currently logged in userids
+
+<p>
+
+<li> whoami - display information about userid that is currently
+logged in
+
+<p>
+
+<li> wish - front end to tk, an X window extension of tcl
+
+<p>
+
+<li> workbone - console based cd player
+
+<p>
+
+<li> workman - graphical cd player program
+
+<p>
+
+<li> write - send messages to another local user
+
+<p>
+
+<li> X - starts up the X server. Can be invoked with
+
+<ul>
+
+<li> X -quiet -query remotemachineaddress
+</ul>
+<p>
+in order to get a graphical login screen on the remote machine. See the
+discussion in connection with xdm below.
+
+<p>
+
+<li> xadm - display advanced power management BIOS information
+
+<p>
+
+<li> xargs - converts standard output of one command into arguments for
+another. This is one of those powerful but obscure commands. Xargs reads
+arguments from the standard input, delimited by blanks (which can be
+protected with double or single quotes or a backslash) or newlines, and
+executes the command (default is /bin/echo) one or more times with any
+initial-arguments followed by arguments read from standard input. Blank
+lines on the standard input are ignored.
+
+<p>
+
+<li> xbiff - graphical mail delivery notification utility
+
+<p>
+
+<li> xcalc - simple calculator program
+
+<p>
+
+<li> xclipboard - name says it all
+
+<p>
+
+<li> Xconfigurator - Red Hat utility for configuring settings for X
+
+<p>
+
+<li> xdm - used to start an X login session. This can be used to start a
+login session on a remote system. See the discussion on the following
+site:
+
+<ul>
+
+<li> <a href="http://www.menet.umn.edu/~kaszeta/unix/xterminal/index.html"><tt>http://www.menet.umn.edu/~kaszeta/unix/xterminal/index.html</tt></a>
+</ul>
+<p>
+See the man pages for X, xdm, and Xserver. As usual, the man pages are
+pretty obscure. The best single source seems to be the Xserver man pages.
+After X is configured, X needs to be started at bootup with the command
+(in /etc/rc.d/init.d/xterm):
+
+<ul>
+
+<li> X -quiet -query remotemachineaddress
+</ul>
+<p>
+If the address of a nameserver is not configured, then the numeric address
+of the remote machine rather than its name should be entered. If the
+machines are connected through ethernet cards and the net, then obviously
+basic networking has to be set up. Gnome and KDE come with their own versions
+of X display/login managers, called respectively gdm and kdm.
+
+<p>
+
+<li> xdvi - view a dvi file compiled under L<sup>A</sup>T<sub>E</sub>X
+
+<p>
+
+<li> xedit - a simple text editor for X
+
+<p>
+
+<li> xf86config - graphical configuration tool for X
+
+<p>
+
+<li> XF86Setup - graphical configuration tool for X
+
+<p>
+
+<li> xfd - display an available font in X. Creates a grid in an x-term
+with one character per rectangle.
+
+<p>
+
+<li> xfig - utility for interactive generation of figures
+
+<p>
+
+<li> xfm - graphical file manager for X
+
+<p>
+
+<li> xhost - tell X server that remote computer has access to your
+machine and that you will use the remote computer. This can be used to set
+up remote X sessions. To set up a remote X session on the UQAM Nobel
+machine, run the following command on the local machine (one doesn't have
+to be root to do this)
+
+<ul>
+
+<li> xhost +nobel.si.uqam.ca
+</ul>
+<p>
+Then, log onto the remote machine using rlogin (see above) or telnet. Once
+logged in, use the following command to get the remote X server to open an
+X terminal on the local machine:
+
+<ul>
+
+<li> setenv DISPLAY localhostname:0 ; xterm &amp;
+</ul>
+<p>
+This is valid for csh, which is the default login shell on Nobel. For ksh,
+(and I think bash) replace with
+
+<ul>
+
+<li> DISPLAY=localhostname:0
+
+<li> export DISPLAY ; xterm
+</ul>
+<p>
+Other X-based programs such as Netscape or Gauss (graphical version) can
+also be run on a remote machine with display on the local machine with
+little trouble. The local X server is the program that has all of the
+information concerning the properties of the graphics card and terminal, so
+it must be necessary to have X running on the local machine. The following
+should also work. After using xhost to give permission to the remote machine
+to display on the local machine, use
+
+<ul>
+
+<li> netscape -display localhostname:0.0
+</ul>
+<p>
+Question: can one start the X session on the local machine and then run a
+remote copy of a window manager?
+
+<p>
+
+<li> xinit - start X Window. The command startx is a front end to xinit in
+Linux, including Slackware.
+
+<p>
+
+<li> xload - displays a graphic of the system load
+
+<p>
+
+<li> xlpq - graphical interface to print manager. This is included on one of
+the XFCE menus, but does not seem to be a part of the base Red Hat
+distribution.
+
+<p>
+
+<li> xlsfonts - list fonts available under the X Window system.
+
+<p>
+
+<li> xman - browsable command reference. Displays manual pages under X.
+
+<p>
+
+<li> xmh - graphical front end under X to the nmh mail handling
+system. This program is part of the XFree86 package in Red Hat.
+
+<p>
+
+<li> xmodmap - utility for modifying keymaps and pointer button mappings
+in X. Can be used to install a French Canadian keyboard. Download the
+Xmodmap.cf file from www.linux-quebec.org, and insert the command
+
+<ul>
+
+<li> xmodmap /etc/X11/Xmodmap.cf &amp;
+</ul>
+<p>
+into the .xession (with xdm) or the .xinitrc (with startx) file.
+
+<p>
+
+<li> xosview - displays bar graphs of system load, load average, memory
+usage, and swap usage
+
+<p>
+
+<li> xpaint - simple paint program for X
+
+<p>
+
+<li> xpdf - GPL'd utility for previewing dvi files. Doesn't seem to
+work too well on texts with a lot of math.
+
+<p>
+
+<li> xplaycd - X Window audio cd player utility
+
+<p>
+
+<li> xsetroot - utility to configure root window of an X terminal
+
+<p>
+
+<li> xsysinfo - graphical display of load and memory usage
+
+<p>
+
+<li> xterm - start an X Window terminal session
+
+<p>
+
+<li> xterm-color - color version of xterm
+
+<p>
+
+<li> xv - utility for viewing and manipulating many types of image
+files. This is a shareware program.
+
+<p>
+
+<li> xvidtune - utility for fine tuning of monitor settings under X
+
+<p>
+
+<li> yacc - parser generator
+
+<p>
+
+<li> ytalk - multi-user program similar to talk
+
+<p>
+
+<li> zcat - read one or more files that have been compressed with gzip or
+compress and write to standard output
+
+<p>
+
+<li> zcmp - read compressed files and pass them to cmp
+
+<p>
+
+<li> zdiff - read compressed files and pass them to diff
+
+<p>
+
+<li> zgrep - read compressed files and pass them to grep
+
+<p>
+
+<li> Zharf - AfterStep button panel module
+
+<p>
+
+<li> zip - zip utility compatible with DOS PKzip
+
+<p>
+
+<li> zless - view zipped files
+
+<p>
+
+<li> zmore - print contents of compressed files one screen at a time
+
+<p>
+
+<li> znew - uncompress Z files and recompress in .gz format
+
+<p>
+</ul>Eventually, we want to be able to distinguish between commands that are an
+intrinsic part of the kernel, commands that are executable binaries that
+come with every distribution of Linux, executable binaries that are not
+provided with all distributiions of Linux, and executable shell scripts. We
+also want to point out the typical location of these commands on different
+Linux distributions. Finally, we want to distinguish between shell commands
+and Linux commands.
+
+<p>
+       <h2><a name="tth_sEc10">
+10</a>&nbsp;&nbsp;Notes on Applications</h2>
+
+<p>
+     <h3><a name="tth_sEc10.1">
+10.1</a>&nbsp;&nbsp;Mail Transfer Agents (MTAs)</h3>
+
+<p>
+The Linux distributions I know come with sendmail, except for Mandrake, which
+as of version 7.1 uses Postfix as its default MTA. There are several competing
+programs available. Even the simplest don't seem to be that easy to configure.
+
+<p>
+
+<ul>
+<li> Exim -
+
+<p>
+
+<li> Fetchmail - seemingly one of the few ways (Pine is able to do this as
+well) to download mail automatically from a POP or IMAP server and pass it to
+local mail handling agents. Use the following line in &nbsp;/.fetchmailrc:
+
+<ul>
+
+<li> poll pop.uqam.ca proto pop3 user USERNAME pass PASSWORD
+</ul>
+<p>
+Use the following to have fetchmail loaded as a daemon that will download
+mail at regular intervals:
+
+<ul>
+
+<li> fetchmail -d 6000
+</ul>
+<p>
+The interval is specified in seconds. Fetchmail will poll all of the pop
+servers listed in &nbsp;/.fetchmailrc.
+
+<p>
+
+<li> Getmail - Designed as a replacement for Fetchmail.
+
+<p>
+
+<li> MMDF -
+
+<p>
+
+<li> Postfix - a mail transport agent and potential replacement for
+sendmail. Mandrake 7.1 and up uses this as its default MTA.
+
+<p>
+
+<li> Qmail - a ``modern'' replacement for sendmail. It is reputed to be
+more secure than sendmail. Since it doesn't have a GPL license, it is not the
+default MTA of any Linux distributions that I know of.
+
+<p>
+
+<li> Sendmail - this one gets my vote for the most complicated and obscure
+configuration file, /etc/sendmail.cf. Most individual Linux users will be
+using machines connected to the Internet via an ISP or on networks (such
+as university networks) with centralized mail processing and access to the
+net. I have to change the following lines in sendmail.cf to be able to
+send mail with emacs.
+
+<ul>
+
+<li> DMuqam.ca          <tt>#</tt> masquerade the domain name
+
+<li> DNambler.steven    <tt>#</tt> masquerade username
+
+<li> DSnobel.si.uqam.ca <tt>#</tt> relay all mail through nobel server
+</ul>
+<p>
+The problem comes from the fact that, as a user on a local network, I
+don't have my own domain name. I want return mail to be routed to
+UQAM's mail server and I want the server to handle all my mail for me,
+even mail to other UQAM users. If I send mail to UQAM users using
+their normalized usernames, the net does not know who or where they
+are. I have managed to get a configuration that works by writing a
+sendmail.mc file and processing it with the m4 macro interpreter,
+following the Address-Rewriting mini-HOWTO. I now have something that
+works, but which mysteriously complains about ``dangerous write
+permissions'' every time the system boots up.
+
+<p>
+
+<li> Smail - seems to be a popular choice on smaller systems. It
+would appear that at one point in its history, Red Hat shipped with
+smail, but this has been replaced with sendmail.
+
+<p>
+
+<li> Zmailer - apparently designed for mail servers with a large number
+of users.
+
+<p>
+</ul>     <h3><a name="tth_sEc10.2">
+10.2</a>&nbsp;&nbsp;Mail User Agents (MUAs)</h3>
+
+<p>
+
+<ul>
+<li> Acmemail - Web-based mail agent. Allows you to access your mail
+with any browser. Involves setting up a Perl CGI script on the server
+side.
+
+<p>
+
+<li> Archimedes - A successor program to XFmail (see below)
+
+<p>
+
+<li> Arrow -
+
+<p>
+
+<li> Balsa - the default Gnome mail program
+
+<p>
+
+<li> Blitzmail -
+
+<p>
+
+<li> Elm -
+
+<p>
+
+<li> Emumail - Web-based mail agent. Allows you to use any browser
+to check your POP mail account. The Web site of the company that makes
+this one can be used to check your mail on a Unix system without
+setting up any CGI script on the server side.
+
+<p>
+
+<li> Evolution - mail reader and contact manager/calendar designed for use
+  under Gnome
+
+<p>
+
+<li> Exmh - graphical front end for Mh
+
+<p>
+
+<li> Kmail - mail reading program included with KDE
+
+<p>
+
+<li> M - for ``Mahogany''. Seems similar to XFmail (see below). I
+haven't been able to figure out from the description whether it runs
+independently of or in conjunction with sendmail and procmail.
+
+<p>
+
+<li> Mh -
+
+<p>
+
+<li> Mumail -
+
+<p>
+
+<li> Mutt - text based mail program, which is highly configurable.
+
+<p>
+
+<li> Nmh - mail handling system. This system includes a <em>large</em>
+number of binary commands that are kept in /usr/bin. See the man page for
+nmh for details. Red Hat 5.1 and 5.2 come with exmh and xmh, which are
+graphical front ends for nmh. The exmh front end is a separate package,
+while xmh is owned by XFree86.
+
+<p>
+
+<li> Pine - text based mail and news utility. Features now include:
+
+<ul>
+
+<li> MIME support
+
+<li> ability to read and post network news
+
+<li> maintenance of an address book of mail recipients
+
+<li> spell checking during message composition
+
+<li> mouse support when using xterm on an X Window system
+
+<li> a highly configurable environment
+</ul>
+<p>
+Pine can be used to download mail from one or more POP3 mail servers. See Tip
+of the Week (<a href="http://tipoftheweek.darkelf.net"><tt>http://tipoftheweek.darkelf.net</tt></a>) for the fourth week of
+February 1999. First, set up multiple configuration files (pine -p localmail,
+pine -p popserver 1, pine -p popserver 2, etc.). Then, to configure Pine to
+use a POP3 server, use the Setup Config command. Set something like this in
+the inbox-path:
+
+<ul>
+
+<li> {pop.server.com/pop3/user=myid}INBOX
+</ul>
+<p>
+When Pine is restarted, it should ask for your password, connect to the
+remote server, and use it is if it were accessing local mail. The article
+is unclear on whether there is the option of leaving copies of the
+downloaded mail on the server.
+
+<p>
+
+<li> Sylpheed -
+
+<p>
+
+<li> XCmail -
+  
+<p>
+
+<li> XFmail - This one seems very promising. It's a GUI-based mail tool that
+  seems to offer most of the features of Netscape's mail module. It runs
+  without using sendmail and procmail, which is a major advantage.
+
+<p>
+</ul>     <h3><a name="tth_sEc10.3">
+10.3</a>&nbsp;&nbsp;Editors</h3>
+
+<p>
+
+<ul>
+<li> cooledit - a pretty powerful GUI text editor
+  
+<p>
+
+<li> emacs - powerful text editor that includes modules for reading and
+  sending mail and postings to newsgroups, and a browser module. For editing
+  T<sub>E</sub>X and L<sup>A</sup>T<sub>E</sub>X files, the AucT<sub>E</sub>X addon package is invaluable, and
+  makes emacs pretty hard to beat as an editor with L<sup>A</sup>T<sub>E</sub>X.
+
+<p>
+
+<li> jed - has pretty good emacs emulation (it can even read mail like
+  emacs!). It does simple syntax highlighting for TeX files, including giving
+  positioning of parentheses. It would seem to be pretty configurable and
+  takes up much less disk space than emacs, although more than joe and
+  muemacs. It works well in console mode, and still manages to use colors for
+  menu bars and syntax highlighting. The program xjed which comes with some
+  versions starts up its own X terminal when invoked.
+  
+<p>
+
+<li> joe - "Joe's Own Editor", a fairly powerful editor with a compact
+  binary and an ability to emulate Wordstar, Emacs, Pico, and a few other
+  editors.
+  
+<p>
+
+<li> jove - "Joe's Own Version of Emacs". I tried this out a couple of times
+  and managed to crash it when making some minor errors in command syntax.
+  
+<p>
+
+<li> microemacs (JASSPA) - spinoff of muemacs. Pretty powerful and
+  configurable, while not taking up too much disk space or memory.
+  
+<p>
+
+<li> muemacs - a fairly powerful emacs clone whose binary is actually
+  smaller than that of the Joe editor.
+  
+<p>
+
+<li> nedit - an X Window based text editor. Of all text editors for Linux
+  that I've seen, it has commands which are closest to Windows text editors,
+  for cursor movement, highlighting, marking text, etc. It has very good
+  syntax highlighting for both L<sup>A</sup>T<sub>E</sub>X and HTML.
+
+<p>
+
+<li> pico - simple text editor. It often comes packaged with the Pine mail
+  user agent.
+  
+<p>
+
+<li> vi - included with most Linux distributions. If you're not used to the
+  syntax, it can be pretty hard to understand.
+
+<p>
+
+<li> vim - improved version of vi
+
+<p>
+
+<li> xedit - simple text editor included with many Linux distributions
+
+<p>
+</ul>     <h3><a name="tth_sEc10.4">
+10.4</a>&nbsp;&nbsp;Other</h3>
+
+<p>
+
+<ul>
+<li> dfm - Desktop File Manager. Allows the user to place program icons on
+the desktop.
+
+<p>
+
+<li> gmc - Gnome Midnight Commander. Gnome version of Midnight
+Commander. Includes a graphical interface and allows the user to place icons
+on the desktop.
+
+<p>
+
+<li> mc - Midnight Commander file manager. Runs in console mode and in an
+xterm.
+
+<p>
+
+<li> scilab - a free matrix programming language. May be a good substitute
+for GAUSS and/or MATLAB.
+
+<p>
+</ul>       <h2><a name="tth_sEc11">
+11</a>&nbsp;&nbsp;Some Nifty Slogans</h2>
+
+<p>
+ Linux: the choice of a GNU generation.
+
+<p>
+ Windows: where do you want to go today?
+Linux: where do you want to go tomorrow?
+
+<p>
+ This program has performed an illegal operation and will be
+shut down: please reboot using Linux.
+
+<p>
+ ``When you say `I wrote a program that crashed Windows', people just stare
+at you blankly and say `Hey, I got those with the system,
+<em>for free</em>'.'' - Linus Torvalds
+
+<p>
+ Windows 2000, from the company that brought you EDLIN!
+
+<p>
+ Linux: because rebooting is for adding new hardware.
+
+<p>
+ Your mouse has moved. Windows NT must be restarted for the change to take
+effect. Reboot now [OK]?
+
+<p>
+ Linux: transforms your microcomputer into a workstation. Windows NT:
+transforms your workstation into a microcomputer.
+
+<p>
+       <h2><a name="tth_sEc12">
+12</a>&nbsp;&nbsp;References</h2>
+
+<p>
+Computer Technology Documentation Project (CTDP) (2000a), ``How Linux Works'',
+<a href="http://ctdp.tripod.com/os/linux/howlinuxworks/index.html"><tt>http://ctdp.tripod.com/os/linux/howlinuxworks/index.html</tt></a>
+
+<p>
+ Computer Technology Documentation Project (CTDP) (2000b), ``Linux Files and
+Command Reference'',
+<a href="http://ctdp.tripod.com/os/linux/commands/index.html"><tt>http://ctdp.tripod.com/os/linux/commands/index.html</tt></a>
+
+<p>
+Klimas, Piotr et.&nbsp;al.&nbsp;(1999), ``Linux Newbie Administrator Guide'',
+<a href="http://sunsite.dk/linux-newbie/"><tt>http://sunsite.dk/linux-newbie/</tt></a>
+
+<p>
+Siever, Ellen, Stephen Spainhour, Jessica P. Hekman, and Stephen Figgins
+(2000), <em>Linux in a Nutshell</em>. third edition, O'Reilly
+
+<p>
+Sobell, Mark G.&nbsp;(1998), <em>A Practical Guide to Linux</em>. Addison-Wesley
+
+<p>
+ SSC (2000), ``Bash Reference Card'',
+<a href="http://www.ssc.com/ssc/bash/ bash.pdf"><tt>http://www.ssc.com/ssc/bash/ bash.pdf</tt></a> 
+
+<p>
+Welsh, Matt, Matthias Kalle Dalheimer and Lar Kaufman (1999), <em>Running
+  Linux</em>. third edition, O'Reilly and Associates
+
+<p>
+<br> <br><br><b>last modified: (21/03/02)</b>
+
+<p>
+
+<br><br><hr><small>File translated from
+T<sub><font size="-1">E</font></sub>X
+by <a href="http://hutchinson.belmont.ma.us/tth/">
+T<sub><font size="-1">T</font></sub>H</a>,
+version 2.73.<br>On 21 Mar 2002, 07:57.</small>
+</html>

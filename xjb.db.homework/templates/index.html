@@ -1,0 +1,25 @@
+$def with ()
+<html>
+    <link href="/static/stylesheets/stylelog.css" rel="stylesheet" type="text/css" />
+    <body>
+        <!-- Please login -->
+        $if not cookie().get('username'):
+            <form name="login" action="login" method="post">
+                <label for="username">用户名</label>
+                <input type="text" name="username" />
+                <br />
+                <label for="username">密码</label>
+                <input type="password" name="password" />
+                <br />
+                <input type="submit" value="submit" />
+            </form>
+        $else:
+            欢迎$cookie().get('username')!&nbsp;&nbsp;&nbsp;<a href="/logout">注销</a>
+            <br />
+            <a href="/view/student">学生信息</a><br />
+            <a href="/view/teacher">教师信息</a><br />
+            <a href="/view/course">课程信息</a><br />
+            <a href="/view/dept">专业信息</a><br />
+            <a href="/view/sc">选课</a><br />
+    </body>
+</html>
