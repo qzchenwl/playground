@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#modprobe pktgen
+
+${PGDEV:=/proc/net/pktgen/kpktgend_0}
+
+echo $1 > $PGDEV
+result=`cat $PGDEV | fgrep "Result: OK:"`
+if [ "$result" = "" ]; then
+    cat $PGDEV | fgrep Result:
+fi
