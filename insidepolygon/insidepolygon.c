@@ -5,7 +5,7 @@
 #define OUTSIDE 1
 
 typedef struct {
-    double x, y;
+    int x, y;
 } point;
 
 int insidePolygon(point *polygon, int n, point p)
